@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Logout from "./Logout";
+import Logout from "../Logout";
 
-class UserProfile extends Component {
+class ProfileView extends Component {
   render() {
     return (
       <div>
@@ -12,4 +12,4 @@ class UserProfile extends Component {
   }
 }
 
-export default UserProfile;
+export default ProfileView;

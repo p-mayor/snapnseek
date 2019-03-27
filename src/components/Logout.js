@@ -3,7 +3,6 @@ import { logoutThenGoToLogin as logout } from "../actions/auth";
 import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 
-
 class Logout extends Component {
   state = {};
 
