@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginThenGoToUserProfile as login } from "../actions";
 import Spinner from "react-spinkit";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
 
 class LoginForm extends Component {
   state = { username: "", password: "" };
@@ -18,31 +21,26 @@ class LoginForm extends Component {
   render() {
     const { isLoading, err } = this.props;
     return (
-      <React.Fragment>
-        <h1>Login</h1>
-        <form onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            autoFocus
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            required
-            onChange={this.handleChange}
-          />
-          <button type="submit" disabled={isLoading}>
-            Login
-          </button>
-        </form>
-        {isLoading && <Spinner name="circle" color="blue" />}
-        {err && <p style={{ color: "red" }}>{err}</p>}
-      </React.Fragment>
+      <Card style={{ width: "18rem", margin: "auto", marginTop: "10px" }}>
+        <Card.Body>
+          <h1>Login</h1>
+          <Form onSubmit={this.handleLogin}>
+            <Form.Group controlId="formBasicUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="username" placeholder="Enter username" />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+          {isLoading && <Spinner name="circle" color="blue" />}
+          {err && <p style={{ color: "red" }}>{err}</p>}
+        </Card.Body>
+      </Card>
     );
   }
 }
