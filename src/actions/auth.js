@@ -102,7 +102,7 @@ const register = registerData => dispatch => {
       return Promise.reject(
         dispatch({
           type: REGISTER_FAIL,
-          payload: err
+          payload: err.message
         })
       );
     });
