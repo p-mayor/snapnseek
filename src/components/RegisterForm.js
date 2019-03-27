@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { registerThenGoToUserProfile as register } from "../actions";
-import Spinner from "react-spinkit";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 
 class RegisterForm extends Component {
-  state = { username: "", password: "", displayName: "" };
+  state = {};
 
   handleRegister = e => {
     e.preventDefault();
@@ -19,7 +19,6 @@ class RegisterForm extends Component {
   };
 
   render() {
-    const { isLoading, err } = this.props;
     return (
       <Card style={{ width: "18rem", margin: "auto", marginTop: "10px" }}>
         <Card.Body>
@@ -37,12 +36,12 @@ class RegisterForm extends Component {
             <Form.Group controlId="formBasicDisplayname">
               <Form.Label>Display Name:</Form.Label>
               <Form.Control
-                type="displayname"
-                name="displayname"
+                type="displayName"
+                name="displayName"
                 placeholder="Enter display name"
                 onChange={this.handleChange}
               />
-              </Form.Group>
+            </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password:</Form.Label>
               <Form.Control
@@ -56,8 +55,7 @@ class RegisterForm extends Component {
               Register Now!
             </Button>
           </Form>
-          {isLoading && <Spinner name="circle" color="blue" />}
-          {err && <p style={{ color: "red" }}>{err}</p>}
+          <Link to="/">Login</Link>
         </Card.Body>
       </Card>
     );

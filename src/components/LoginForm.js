@@ -5,6 +5,7 @@ import Spinner from "react-spinkit";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 
 class LoginForm extends Component {
   state = { username: "", password: "" };
@@ -49,6 +50,7 @@ class LoginForm extends Component {
           </Form>
           {isLoading && <Spinner name="circle" color="blue" />}
           {err && <p style={{ color: "red" }}>{err}</p>}
+          <Link to="/register">Register</Link>
         </Card.Body>
       </Card>
     );

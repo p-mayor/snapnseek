@@ -99,7 +99,6 @@ const register = registerData => dispatch => {
       });
     })
     .catch(err => {
-      alert("Username already in use, Please choose a different username.");
       return Promise.reject(
         dispatch({
           type: REGISTER_FAIL,

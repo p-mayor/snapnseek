@@ -7,7 +7,7 @@ import {
   LOGOUT_FAIL,
   REGISTER,
   REGISTER_SUCCESS,
-  REGISTER_FAIL,
+  REGISTER_FAIL
 } from "../actions";
 
 const initialState = {
@@ -17,7 +17,6 @@ const initialState = {
   logoutLoading: null,
   logoutError: null,
   registerLoading: false,
-  register: null,
   registerError: null
 };
 
@@ -49,7 +48,7 @@ export default (state = initialState, action) => {
       return { ...state, registerLoading: true, registerError: null };
 
     case REGISTER_SUCCESS:
-      return { ...state, register: action.payload, registerLoading: false };
+      return { ...state, registerLoading: false };
 
     case REGISTER_FAIL:
       return {
