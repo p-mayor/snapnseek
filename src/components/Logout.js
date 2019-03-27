@@ -20,8 +20,7 @@ class Logout extends Component {
       <Button
         name="logout"
         onClick={this.handleLogout}
-        size="massive"
-        color="red"
+        variant="danger"
       >
         Logout
       </Button>

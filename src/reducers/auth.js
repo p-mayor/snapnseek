@@ -4,7 +4,10 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   LOGOUT_SUCCESS,
-  LOGOUT_FAIL
+  LOGOUT_FAIL,
+  REGISTER,
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
 } from "../actions";
 
 const initialState = {
@@ -12,7 +15,10 @@ const initialState = {
   login: null,
   loginError: null,
   logoutLoading: null,
-  logoutError: null
+  logoutError: null,
+  registerLoading: false,
+  register: null,
+  registerError: null
 };
 
 export default (state = initialState, action) => {
@@ -38,5 +44,18 @@ export default (state = initialState, action) => {
 
     case LOGOUT_FAIL:
       return { ...state, logoutError: action.payload, logoutLoading: false };
+
+    case REGISTER:
+      return { ...state, registerLoading: true, registerError: null };
+
+    case REGISTER_SUCCESS:
+      return { ...state, register: action.payload, registerLoading: false };
+
+    case REGISTER_FAIL:
+      return {
+        ...state,
+        registerError: action.payload,
+        registerLoading: false
+      };
   }
 };
