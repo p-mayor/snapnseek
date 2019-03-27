@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import LoginForm from "../LoginForm";
 
 class LandingView extends Component {
   render() {
-    return <p>This is the LandingView</p>;
+    return <LoginForm />;
   }
 }
 
