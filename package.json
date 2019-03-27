@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "boot": "^0.8.2",
     "bootstrap": "^4.3.1",
     "connected-react-router": "^6.3.1",
     "history": "^4.7.2",
