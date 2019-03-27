@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
       return { ...state, logoutLoading: true, logoutError: null };
 
     case LOGOUT_SUCCESS:
-      return { ...state, logout: action.payload, logoutLoading: false };
+      return { ...state, login: null, logoutLoading: false };
 
     case LOGOUT_FAIL:
       return { ...state, logoutError: action.payload, logoutLoading: false };
