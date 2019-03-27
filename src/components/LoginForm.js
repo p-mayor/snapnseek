@@ -21,27 +21,20 @@ class LoginForm extends Component {
   render() {
     const { isLoading, err } = this.props;
     return (
-      <Card>
+      <Card style={{ width: "18rem", margin: "auto", marginTop: "10px" }}>
         <Card.Body>
           <h1>Login</h1>
           <Form onSubmit={this.handleLogin}>
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              autoFocus
-              required
-              onChange={this.handleChange}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              required
-              onChange={this.handleChange}
-            />
-            <Button type="submit" disabled={isLoading}>
-              Login
+            <Form.Group controlId="formBasicUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="username" placeholder="Enter username" />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
             </Button>
           </Form>
           {isLoading && <Spinner name="circle" color="blue" />}
