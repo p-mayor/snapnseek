@@ -4,9 +4,9 @@ import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { registerThenGoToUserProfile as register } from "../../actions";
 import StickyHeader from "../StickyHeader";
-import logo from "../../img/squirrellogo.png";
+import logo from "../../img/bullseye.png";
 
-class RegisterView extends Component {
+class RegisterForm extends Component {
   handleRegister = e => {
     e.preventDefault();
     this.props.register(this.state);
@@ -88,4 +88,4 @@ export default connect(
     err: auth.registerError
   }),
   { register }
-)(RegisterView);
+)(RegisterForm);

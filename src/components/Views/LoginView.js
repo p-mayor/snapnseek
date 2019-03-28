@@ -11,7 +11,7 @@ import {
   Image,
   Header
 } from "semantic-ui-react";
-import logo from "../../img/squirrellogo.png";
+import logo from "../../img/bullseye.png";
 
 class LoginView extends Component {
   state = { username: "", password: "" };
@@ -33,7 +33,7 @@ class LoginView extends Component {
         <Card style={{ margin: "auto" }}>
           <Image src={logo} alt="" />
           <Header style={{ textAlign: "center", fontSize: "50px" }}>
-            Kwitter
+          Snap'nSeek
           </Header>
           <Card.Content>
             <Form onSubmit={this.handleLogin}>
