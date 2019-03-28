@@ -1,10 +1,5 @@
 export { default as App } from "./App";
-export { default as LoginForm } from "./LoginForm";
-export { default as HomeView } from "./Views/HomeView";
-export { default as HuntList } from "./HuntList";
-// export { default as ImageUploader } from "./UserProfile";
-export { default as LandingView } from "./Views/LandingView";
-export { default as LeaderboardList } from "./LeaderboardList";
-export { default as NavBar } from "./NavBar";
-export { default as RegisterForm } from "./RegisterForm";
+export { default as LoginView } from "./Views/LoginView";
 export { default as ProfileView } from "./Views/ProfileView";
+export { default as HomeView } from "./Views/HomeView";
+export { default as RegisterView } from "./Views/RegisterView";

@@ -1,15 +1,17 @@
 {
-  "name": "snapnseek",
+  "name": "kwitter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "boot": "^0.8.2",
-    "bootstrap": "^4.3.1",
+    "bcrypt": "^3.0.4",
     "connected-react-router": "^6.3.1",
     "history": "^4.7.2",
+    "moment": "^2.24.0",
+    "node": "^11.11.0",
     "react": "^16.8.4",
-    "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.4",
+    "react-infinite-scroll-component": "^4.5.2",
+    "react-moment": "^0.8.4",
     "react-redux": "^6.0.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -17,7 +19,9 @@
     "react-spinkit": "^3.0.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.85.0"
   },
   "scripts": {
     "start": "react-scripts start",

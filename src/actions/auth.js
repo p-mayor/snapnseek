@@ -6,15 +6,13 @@ export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
-// actions for logout
-export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
-export const LOGOUT = "LOGOUT";
-export const LOGOUT_FAIL = "LOGOUT_FAIL";
-
-// actions for register
 export const REGISTER = "REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
+
+export const LOGOUT = "LOGOUT";
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+export const LOGOUT_FAIL = "LOGOUT_FAIL";
 
 const url = domain + "/auth";
 
@@ -43,73 +41,63 @@ const login = loginData => dispatch => {
     });
 };
 
-export const loginThenGoToUserProfile = loginData => dispatch => {
-  return dispatch(login(loginData)).then(() => dispatch(push("/profile")));
-};
-
-const logout = logoutData => (dispatch, getState) => {
-  const token = getState().auth.login;
-  dispatch({
-    type: LOGOUT
-  });
-  return fetch(url + "/logout", {
-    headers: {
-      Authorization: "Bearer" + token,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(logoutData)
-  })
-    .then(handleJsonResponse)
-    .then(result => {
-      return dispatch({
-        type: LOGOUT_SUCCESS,
-        payload: result
-      });
-    })
-    .catch(err => {
-      alert("Incorrect Login or Password");
-      return Promise.reject(
-        dispatch({
-          type: LOGOUT_FAIL,
-          payload: err
-        })
-      );
-    });
-};
-
-export const logoutThenGoToLogin = logoutData => dispatch => {
-  return dispatch(logout(logoutData)).then(() => dispatch(push("/")));
-};
-
 const register = registerData => dispatch => {
   dispatch({
     type: REGISTER
   });
 
-  return fetch(url + "/register", {
-    method: "POST",
-    headers: jsonHeaders,
-    body: JSON.stringify(registerData)
+  if (registerData.password === registerData.confirmpassword) {
+    return fetch(url + "/register", {
+      method: "POST",
+      headers: jsonHeaders,
+      body: JSON.stringify(registerData)
+    })
+      .then(handleJsonResponse)
+      .then(result => {
+        return dispatch({
+          type: REGISTER_SUCCESS,
+          payload: result
+        });
+      })
+      .catch(err => {
+        return Promise.reject(
+          dispatch({ type: REGISTER_FAIL, payload: err.message })
+        );
+      });
+  } else {
+    return Promise.reject(
+      dispatch({ type: REGISTER_FAIL, payload: "passwords must match" })
+    );
+  }
+};
+
+export const logout = () => (dispatch, getState) => {
+  const token = getState().auth.login.token;
+  dispatch({
+    type: LOGOUT
+  });
+
+  return fetch(url + "/logout", {
+    method: "GET",
+    headers: { jsonHeaders, Authorization: `Bearer ${token}` }
   })
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
-        type: REGISTER_SUCCESS,
-        payload: result
+        type: LOGOUT_SUCCESS
       });
-    })
-    .catch(err => {
-      return Promise.reject(
-        dispatch({
-          type: REGISTER_FAIL,
-          payload: err.message
-        })
-      );
     });
 };
 
+export const loginThenGoToUserProfile = loginData => dispatch => {
+  return dispatch(login(loginData)).then(() => dispatch(push("/profile")));
+};
+
 export const registerThenGoToUserProfile = registerData => dispatch => {
-  return dispatch(register(registerData)).then(() =>
-    dispatch(loginThenGoToUserProfile(registerData))
-  );
+  return dispatch(register(registerData)).then(() => dispatch(push("/")));
+};
+
+export const logoutThenGoToLogin = logoutData => dispatch => {
+  dispatch(push("/"));
+  return dispatch(logout(logoutData));
 };
