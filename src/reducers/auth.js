@@ -2,23 +2,23 @@ import {
   LOGIN,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  REGISTER,
+  REGISTER_FAIL,
+  REGISTER_SUCCESS,
   LOGOUT,
   LOGOUT_SUCCESS,
-  LOGOUT_FAIL,
-  REGISTER,
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
+  LOGOUT_FAIL
 } from "../actions";
 
 const initialState = {
   loginLoading: false,
   login: null,
   loginError: null,
+  registerError: null,
+  username: null,
+  displayName: null,
   logoutLoading: null,
-  logoutError: null,
-  registerLoading: false,
-  register: null,
-  registerError: null
+  logoutError: null
 };
 
 export default (state = initialState, action) => {
@@ -34,28 +34,29 @@ export default (state = initialState, action) => {
     case LOGIN_FAIL:
       return { ...state, loginError: action.payload, loginLoading: false };
 
-    default:
-      return state;
+    case REGISTER:
+      return {
+        ...state,
+        loginLoading: true,
+        registerError: null
+      };
+    case REGISTER_SUCCESS:
+      return { ...state, loginLoading: false };
+    case REGISTER_FAIL:
+      return { ...state, registerError: action.payload, loginLoading: false };
+
     case LOGOUT:
-      return { ...state, logoutLoading: true, logoutError: null };
-
+      return {
+        ...state,
+        logoutLoading: true,
+        logoutError: null
+      };
     case LOGOUT_SUCCESS:
-      return { ...state, login: null, logoutLoading: false };
-
+      return { ...state, login: null };
     case LOGOUT_FAIL:
       return { ...state, logoutError: action.payload, logoutLoading: false };
 
-    case REGISTER:
-      return { ...state, registerLoading: true, registerError: null };
-
-    case REGISTER_SUCCESS:
-      return { ...state, register: action.payload, registerLoading: false };
-
-    case REGISTER_FAIL:
-      return {
-        ...state,
-        registerError: action.payload,
-        registerLoading: false
-      };
+    default:
+      return state;
   }
 };
