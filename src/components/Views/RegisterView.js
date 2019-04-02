@@ -4,7 +4,7 @@ import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { registerThenGoToUserProfile as register } from "../../actions";
 import StickyHeader from "../StickyHeader";
-import logo from "../../img/bullseye.png";
+import logo from "../../img/whitebullseye.png";
 
 class RegisterForm extends Component {
   handleRegister = e => {
@@ -22,7 +22,11 @@ class RegisterForm extends Component {
       <React.Fragment>
         <StickyHeader />
         <Card style={{ margin: "auto" }}>
-          <Image src={logo} alt="" />
+          <Image
+            style={{ marginLeft: "40px", marginBottom: "20px" }}
+            src={logo}
+            alt=""
+          />
           <Card.Content>
             <Form onSubmit={this.handleRegister}>
               <h1 style={{ textAlign: "center" }}>Register</h1>
@@ -71,7 +75,7 @@ class RegisterForm extends Component {
                   disabled={isLoading}
                   style={{ backgroundColor: "#ffa366" }}
                 >
-                  Submit
+                  Happy Hunting
                 </Button>
               </div>
             </Form>

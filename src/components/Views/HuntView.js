@@ -1,9 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 class HuntView extends Component {
   render() {
-    return <p>This is the HuntView page</p>;
+    return (
+      <div>
+        This is the HuntView Page
+      </div>
+    )
   }
 }
 
-export default HuntView;
+export default HuntView

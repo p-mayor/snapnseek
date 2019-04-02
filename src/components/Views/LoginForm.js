@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginThenGoToUserProfile as login } from "../../actions";
 import Spinner from "react-spinkit";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
+import {
+  Form,
+  FormField,
+  Card,
+  Button,
+  Image,
+  Header
+} from "semantic-ui-react";
+import logo from "../../img/whitebullseye.png";
 
 class LoginForm extends Component {
   state = { username: "", password: "" };
@@ -21,36 +27,52 @@ class LoginForm extends Component {
   render() {
     const { isLoading, err } = this.props;
     return (
-      <Card style={{ width: "18rem", margin: "auto", marginTop: "10px" }}>
-        <Card.Body>
-          <h1>Login</h1>
-          <Form onSubmit={this.handleLogin}>
-            <Form.Group controlId="formBasicUsername">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="username"
-                name="username"
-                placeholder="Enter username"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                placeholder="Password"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-          {isLoading && <Spinner name="circle" color="blue" />}
-          {err && <p style={{ color: "red" }}>{err}</p>}
-        </Card.Body>
-      </Card>
+      <React.Fragment>
+        <Card style={{ margin: "auto" }}>
+          <Image
+            style={{ marginLeft: "40px", marginBottom: "20px" }}
+            src={logo}
+            alt=""
+          />
+          <Header style={{ textAlign: "center", fontSize: "50px" }}>
+            Snap'nSeek
+          </Header>
+          <Card.Content>
+            <Form onSubmit={this.handleLogin}>
+              <FormField>
+                <Form.Input
+                  placeholder="Username"
+                  name="username"
+                  fluid
+                  autoFocus
+                  label="Username"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  fluid
+                  label="Password"
+                  onChange={this.handleChange}
+                />
+                {isLoading && <Spinner name="circle" color="blue" />}
+                {err && <p style={{ color: "red" }}>{err}</p>}
+              </FormField>
+              <div style={{ textAlign: "center" }}>
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  style={{ backgroundColor: "#ffa366" }}
+                  className="btn"
+                >
+                  Login
+                </Button>
+              </div>
+            </Form>
+          </Card.Content>
+        </Card>
+      </React.Fragment>
     );
   }
 }
