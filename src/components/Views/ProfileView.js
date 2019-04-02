@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import StickyHeader from "../StickyHeader";
 import UserProfile from "../UserProfile";
 import UpdateProfileForm from "../UpdateProfileForm";

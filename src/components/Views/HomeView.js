@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Grid, Segment } from "semantic-ui-react";
-
 import MessageForm from "../MessageForm";
 import StickyHeader from "../StickyHeader";
 import HomeMessageFeed from "../HomeMessageFeed";

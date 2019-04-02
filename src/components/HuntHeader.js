@@ -6,7 +6,7 @@ import UserImage from "./UserImage";
 import { logoutThenGoToLogin as logout } from "../actions";
 import logo from "../img/bullseye.png";
 
-class StickyHeader extends Component {
+class HuntHeader extends Component {
   handleLogout = () => {
     this.props.logout(this.props.login.token);
   };
@@ -19,12 +19,8 @@ class StickyHeader extends Component {
             <React.Fragment>
               <Link to="/home">
                 <Menu.Item>
-                  <strong>Snap'nSeek</strong>
-                  <Image
-                    src={logo}
-                    alt=""
-                    style={{ width: "50px", marginLeft: "10px" }}
-                  />
+                  Snap'nSeek
+                  <Image src={logo} alt="" style={{ width: "50px" }} />
                 </Menu.Item>
               </Link>
               <Menu.Menu position="right">
@@ -52,13 +48,15 @@ class StickyHeader extends Component {
             <React.Fragment>
               <Menu.Item>
                 <Link to="/">
-                  <Button style={{ backgroundColor: "#ffa366" }}>Login</Button>
+                  <Button style={{ backgroundColor: "#ffa366" }}>
+                    All Hunts
+                  </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                <Link to="/register">
+                <Link to="/leaderboard">
                   <Button style={{ backgroundColor: "#ffa366" }}>
-                    Register
+                    LeaderBoards
                   </Button>
                 </Link>
               </Menu.Item>
@@ -76,4 +74,4 @@ export default connect(
     displayName: users.loggedInUser.displayName
   }),
   { logout }
-)(StickyHeader);
+)(HuntHeader);
