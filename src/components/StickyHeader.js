@@ -43,6 +43,13 @@ class StickyHeader extends Component {
                     </span>
                   </Menu.Item>
                 </Link>
+                <Link to="/hunt">
+                  <Menu.Item style={{ height: "100%" }}>
+                    <span style={{ marginRight: "10px" }}>
+                    Hunt
+                    </span>
+                  </Menu.Item>
+                </Link>
                 <Menu.Item>
                   <Button
                     style={{ backgroundColor: "#fe4249", padding:"9px" }}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { createMessage } from "../actions";
-
+// import ImageUploader from "./ImageUploader";
 
 class HuntForm extends Component {
   state = { token: this.props.token, text: "", err: null, open: false };
@@ -18,6 +18,12 @@ class HuntForm extends Component {
     }
   };
 
+  // change this to go somehwere
+  handleSubmit = () => {
+    // this.props.updateUser({ ...this.state });
+    this.handleModal();
+  };
+
   handleChange = e => {
     this.setState({ text: e.target.value });
   };
@@ -30,7 +36,7 @@ class HuntForm extends Component {
     return (
       <Card style={{ width: "100%", textAlign: "center" }}>
         <Card.Content>
-          <Modal
+          <Modal style={{width: "100%" }}
             trigger={
               <Button
                 onClick={this.handleModal}
@@ -42,48 +48,53 @@ class HuntForm extends Component {
             }
             open={this.state.open}
             onClose={this.handleModal}
-            >
-            <Card style={{ width: "100%" }}>
-            <Card.Content>
-              <Form onSubmit={this.handleSubmit} size="large">
-                <Grid container stackable>
-                  <Grid.Column floated="left" width={8}>
-                    <Form.Input
-                      placeholder="New display name"
-                      name="displayName"
-                      fluid
-                      label="Change your display name"
-                      onChange={this.handleChange}
-                    />
-                    <Form.Input
-                      type="password"
-                      placeholder="New password"
-                      name="password"
-                      fluid
-                      label="Change Password"
-                      onChange={this.handleChange}
-                    />
-                    <Form.TextArea
-                      placeholder="Tell the world something about you."
-                      name="about"
-                      label="Change your bio"
-                      onChange={this.handleChange}
-                    />
-                  </Grid.Column>
-                  <Grid.Column floated="right" width={3}>
-                    <Form.Button
-                      // type="submit"
-                      onSubmit={this.handleSubmit}
-                      content="Submit changes"
-                      style={{ backgroundColor: "#ffa366" }}
-                    />
-                  </Grid.Column>
-                </Grid>
-              </Form>
-            </Card.Content>
-          </Card>
-          </Modal>
+          >
+            <Card style={{width: "100%" }}>
+              <Card.Content style={{ margin: "auto"}}>
+                <Form onSubmit={this.handleSubmit} size="large">
+                  <Grid container stackable>
+                    <Grid.Column>
+                      <Form.Input
+                        placeholder="Hunt Name"
+                        name="displayName"
+                        fluid
+                        label="Give Your Hunt a Name"
+                        onChange={this.handleChange}
+                      />
+                      <Form.Input
+                        placeholder="Location"
+                        name="location"
+                        fluid
+                        label="Where is it?"
+                        onChange={this.handleChange}
+                      />
+                      <Form.TextArea
+                        placeholder="Tell the communinity about the hunt"
+                        name="about"
+                        label="Hunt Description"
+                        onChange={this.handleChange}
+                      />
+                      <Form.Input
+                        type="file"
+                        placeholder="Location"
+                        name="location"
+                        fluid
+                        label="Submit Your Enticing Hunt Photo"
+                        onChange={this.handleChange}
+                      />
+                      <Form.Button
+                        // type="submit"
+                        onSubmit={this.handleSubmit}
+                        content="Submit Your Hunt"
+                        style={{ backgroundColor: "#ffa366" }}
+                      />
 
+                    </Grid.Column>
+                  </Grid>
+                </Form>
+              </Card.Content>
+            </Card>
+          </Modal>
         </Card.Content>
       </Card>
     );

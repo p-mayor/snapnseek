@@ -7,3 +7,4 @@ export { default as ProfileView } from "./Views/ProfileView";
 export { default as RecentHuntsView } from "./Views/RecentHunts";
 export { default as LeaderboardView } from "./Views/LeaderboardView";
 export { default as HuntView } from "./Views/HuntView";
+export { default as StickyHeader } from "./StickyHeader";
