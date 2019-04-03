@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import HomeMessageItem from "./HomeMessageItem";
+import HomeMessageItem from "./HuntItem";
 import { getMessages, getUsers } from "../actions";
 import { connect } from "react-redux";
 import { Card } from "semantic-ui-react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export class HomeMessageFeed extends Component {
+export class AllHuntsList extends Component {
   state = { hasMore: true };
   componentDidMount() {
     this.props.getMessages(20, this.props.offset);
@@ -32,7 +32,7 @@ export class HomeMessageFeed extends Component {
       <Card style={{ width: "100%" }}>
         <Card.Content>
           <Card.Header as="h2" textAlign="center">
-            Kweets
+            All Hunts
           </Card.Header>
           <InfiniteScroll
             dataLength={this.props.messages.messages.length}
@@ -86,4 +86,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeMessageFeed);
+)(AllHuntsList);

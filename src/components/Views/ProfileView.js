@@ -13,7 +13,7 @@ export default class ProfileView extends Component {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Grid container stackable>
+        <Grid container stackable >
           <Grid.Row />
           <Grid.Row columns={2}>
             <Grid.Column floated="left" width={6}>

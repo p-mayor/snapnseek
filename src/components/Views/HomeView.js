@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Grid, Segment } from "semantic-ui-react";
-import MessageForm from "../MessageForm";
+import HuntForm from "../HuntForm";
 import StickyHeader from "../StickyHeader";
-import HomeMessageFeed from "../HomeMessageFeed";
+import AllHuntsList from "../AllHuntsList";
 import UserAvatar from "../UserAvatar";
 import UserFeed from "../UserFeed";
 
@@ -19,9 +19,9 @@ export class HomeView extends Component {
               <UserFeed />
             </Grid.Column>
             <Grid.Column floated="right" width={10}>
-              <MessageForm />
+              <HuntForm />
               <Segment>
-                <HomeMessageFeed />
+                <AllHuntsList />
               </Segment>
             </Grid.Column>
           </Grid.Row>
