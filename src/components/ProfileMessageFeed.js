@@ -25,7 +25,7 @@ export class ProfileMessageFeed extends Component {
       <Card style={{ width: "100%" }}>
         <Card.Content>
           <Card.Header as="h2" textAlign="center">
-            My Kweets
+            My Hunts
           </Card.Header>
           <InfiniteScroll
             dataLength={this.props.loggedInUser.messages.length}

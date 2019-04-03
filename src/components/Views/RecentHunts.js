@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Button, Card, Image, Header } from "semantic-ui-react";
 
 class RecentHuntsView extends Component {
   render() {
     return (
-      <React.Fragment>
         <Card style={{ margin: "auto" }}>
           <Header textAlign="center">
             {" "}
@@ -12,7 +12,7 @@ class RecentHuntsView extends Component {
             Recently Added Hunts
           </Header>
           <Card.Group>
-            <Card textAlign="center" verticalAlign="middle">
+            <Card>
               <Card.Content>
                 <Image
                   floated="right"
@@ -26,15 +26,12 @@ class RecentHuntsView extends Component {
                   this picture <strong>out</strong>.
                 </Card.Description>
               </Card.Content>
-              <Card.Content extra>
-                <div className="ui two buttons">
+              <Card.Content extra style={{ margin: "auto" }}>
+                <Link to="/hunt">
                   <Button basic color="green">
-                    Join
+                    Check it Out
                   </Button>
-                  <Button basic color="red">
-                    Details
-                  </Button>
-                </div>
+                </Link>
               </Card.Content>
             </Card>
             <Card>
@@ -52,15 +49,12 @@ class RecentHuntsView extends Component {
                   sent you and you better leave a big tip.
                 </Card.Description>
               </Card.Content>
-              <Card.Content extra>
-                <div className="ui two buttons">
+              <Card.Content extra style={{ margin: "auto" }}>
+                <Link to="/hunt">
                   <Button basic color="green">
-                    Join
+                    Check it Out
                   </Button>
-                  <Button basic color="red">
-                    Details
-                  </Button>
-                </div>
+                </Link>
               </Card.Content>
             </Card>
             <Card>
@@ -78,20 +72,16 @@ class RecentHuntsView extends Component {
                   there may have a clue.
                 </Card.Description>
               </Card.Content>
-              <Card.Content extra>
-                <div className="ui two buttons">
+              <Card.Content extra style={{ margin: "auto" }}>
+                <Link to="/hunt">
                   <Button basic color="green">
-                    Join
+                    Check it Out
                   </Button>
-                  <Button basic color="red">
-                    Details
-                  </Button>
-                </div>
+                </Link>
               </Card.Content>
             </Card>
           </Card.Group>
         </Card>
-      </React.Fragment>
     );
   }
 }

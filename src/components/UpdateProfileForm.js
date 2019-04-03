@@ -24,7 +24,7 @@ class UpdateProfileForm extends Component {
             <Button
               onClick={this.handleModal}
               style={{
-                backgroundColor: "#ffa366",
+                backgroundColor: "#fbf2d0",
                 borderBottom: "1px solid grey"
               }}
             >
@@ -67,7 +67,7 @@ class UpdateProfileForm extends Component {
                       // type="submit"
                       onSubmit={this.handleSubmit}
                       content="Submit changes"
-                      style={{ backgroundColor: "#ffa366" }}
+                      style={{ backgroundColor: "#fe4249" }}
                     />
                   </Grid.Column>
                 </Grid>

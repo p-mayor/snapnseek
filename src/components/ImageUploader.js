@@ -13,7 +13,7 @@ class ImageUploader extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h4>Maximum File Size Limit: 1 MB</h4>
+        <h4>Maximum File Size Limit: 150 KB</h4>
         <input type="file" name="picture" id="picture" />
         <button type="submit" value="submit">
           Submit New Image File

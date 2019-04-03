@@ -36,9 +36,16 @@ class StickyHeader extends Component {
                     <UserImage userId={this.props.login.id} size="mini" />
                   </Menu.Item>
                 </Link>
+                <Link to="/leaderboard">
+                  <Menu.Item style={{ height: "100%" }}>
+                    <span style={{ marginRight: "10px" }}>
+                    leaderboard
+                    </span>
+                  </Menu.Item>
+                </Link>
                 <Menu.Item>
                   <Button
-                    style={{ backgroundColor: "#ffa366" }}
+                    style={{ backgroundColor: "#fe4249" }}
                     onClick={this.handleLogout}
                   >
                     Logout
@@ -52,12 +59,12 @@ class StickyHeader extends Component {
             <React.Fragment>
               <Menu.Item>
                 <Link to="/">
-                  <Button style={{ backgroundColor: "#ffa366" }}>Login</Button>
+                  <Button style={{ backgroundColor: "#fe4249" }}>Login</Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
                 <Link to="/register">
-                  <Button style={{ backgroundColor: "#ffa366" }}>
+                  <Button style={{ backgroundColor: "#fe4249" }}>
                     Register
                   </Button>
                 </Link>

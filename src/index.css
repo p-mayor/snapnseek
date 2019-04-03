@@ -10,11 +10,11 @@ body {
 }
 
 .feedstyle:nth-child(even) {
-  background-color: #ffa366;
+  background-color: #fe4249;
 }
 
 .feedstyle:hover {
-  background-color: #ffe0cc;
+  background-color: #fe4249;
 }
 
 .break-word {
