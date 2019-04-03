@@ -34,7 +34,7 @@ class HuntHeader extends Component {
                 </Link>
                 <Menu.Item>
                   <Button
-                    style={{ backgroundColor: "#ffa366" }}
+                    style={{ backgroundColor: "#fe4249" }}
                     onClick={this.handleLogout}
                   >
                     Logout
@@ -47,15 +47,15 @@ class HuntHeader extends Component {
           <Menu secondary id="menubar">
             <React.Fragment>
               <Menu.Item>
-                <Link to="/">
-                  <Button style={{ backgroundColor: "#ffa366" }}>
+                <Link to="/hunt">
+                  <Button style={{ backgroundColor: "#fe4249" }}>
                     All Hunts
                   </Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
                 <Link to="/leaderboard">
-                  <Button style={{ backgroundColor: "#ffa366" }}>
+                  <Button style={{ backgroundColor: "#fe4249" }}>
                     LeaderBoards
                   </Button>
                 </Link>

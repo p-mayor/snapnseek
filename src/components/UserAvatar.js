@@ -10,7 +10,7 @@ class UserAvatar extends Component {
   }
   render() {
     return (
-      <Card style={{ backgroundColor: "#ffa366", margin: "auto" }}>
+      <Card style={{ backgroundColor: "#fe4249", margin: "auto" }}>
         <Card.Content style={{ margin: "auto" }}>
           <UserImage userId={this.props.userId} size="huge" />
         </Card.Content>

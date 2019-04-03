@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, FormField, Card, Button, Image } from "semantic-ui-react";
+import { Form, FormField, Card, Button, Image, Header } from "semantic-ui-react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { registerThenGoToUserProfile as register } from "../../actions";
@@ -20,6 +20,14 @@ class RegisterForm extends Component {
     const { isLoading, err } = this.props;
     return (
       <React.Fragment>
+      <Header
+          textAlign="center"
+          style={{ height: "100%", marginTop: "5px", marginBottom:"0px" }}
+          verticalAlign="middle"
+        >
+          <h1> Snap'nSeek</h1>
+          
+        </Header>
         <StickyHeader />
         <Card style={{ margin: "auto" }}>
           <Image
@@ -29,7 +37,7 @@ class RegisterForm extends Component {
           />
           <Card.Content>
             <Form onSubmit={this.handleRegister}>
-              <h1 style={{ textAlign: "center" }}>Register</h1>
+              <h1 style={{ textAlign: "center" }}>Join Now</h1>
               <FormField>
                 <Form.Input
                   placeholder="Username"

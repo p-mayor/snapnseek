@@ -63,7 +63,7 @@ class LoginForm extends Component {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  style={{ backgroundColor: "#ffa366" }}
+                  style={{ backgroundColor: "#fe4249" }}
                   className="btn"
                 >
                   Login

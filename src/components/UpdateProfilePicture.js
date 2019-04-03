@@ -18,7 +18,7 @@ class UpdateProfilePicture extends Component {
             <Button
               onClick={this.handleModal}
               style={{
-                backgroundColor: "#ffa366",
+                backgroundColor: "#fe4249",
                 borderBottom: "1px solid grey"
               }}
             >

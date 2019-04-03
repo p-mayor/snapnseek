@@ -20,7 +20,7 @@ class DeleteUser extends Component {
           trigger={
             <Button
               onClick={this.handleModal}
-              style={{ backgroundColor: "#ffa366" }}
+              style={{ backgroundColor: "#fe4249" }}
             >
               <Icon name="user delete" />
               Delete Profile

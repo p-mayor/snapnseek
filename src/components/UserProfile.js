@@ -15,13 +15,13 @@ class UserProfile extends Component {
         <Card.Content>
           <UserAvatar />
           <Card.Meta style={{ marginTop: "10px" }}>
-            Kweeting since {moment(this.props.createdAt).format("MMMM DD YYYY")}
+            Seeking since {moment(this.props.createdAt).format("MMMM DD YYYY")}
           </Card.Meta>
-          <Card style={{ backgroundColor: "#ffa366" }}>
+          <Card style={{ backgroundColor: "#fe4249" }}>
             <Card.Content>
               <Card.Header as="h4">Bio:</Card.Header>
               <Card.Description className='break-word'>
-                {this.props.about || "This kweeter has not yet created a bio"}
+                {this.props.about || "This Hunter has not yet created a bio"}
               </Card.Description>
             </Card.Content>
           </Card>

@@ -20,7 +20,7 @@ export class UserFeed extends Component {
         }}
       >
         <Card.Content>
-          <Card.Header>Kweeters</Card.Header>
+          <Card.Header>Seekers</Card.Header>
           {this.props.userList.map(user => (
             <UserItem
               key={user.id}
