@@ -7,7 +7,7 @@ class LeaderboardView extends Component {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Header textAlign="center" style={{ marginTop: "10px" }}>
+        <Header textAlign="center" style={{ marginTop: "25px" }}>
           {" "}
           The World's Greatest Hunters
         </Header>

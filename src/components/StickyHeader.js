@@ -18,12 +18,12 @@ class StickyHeader extends Component {
           <Menu id="menubar">
             <React.Fragment>
               <Link to="/home">
-                <Menu.Item>
-                  <strong>Snap'nSeek</strong>
+                <Menu.Item style={{ height: "100%" }}>
+                  <strong>Home</strong>
                   <Image
                     src={logo}
                     alt=""
-                    style={{ width: "50px", marginLeft: "10px" }}
+                    style={{ width: "25px", marginLeft: "10px", height:"25px" }}
                   />
                 </Menu.Item>
               </Link>
@@ -39,14 +39,22 @@ class StickyHeader extends Component {
                 <Link to="/leaderboard">
                   <Menu.Item style={{ height: "100%" }}>
                     <span style={{ marginRight: "10px" }}>
-                    leaderboard
+                    Leaderboard
+                    </span>
+                  </Menu.Item>
+                </Link>
+                <Link to="/hunt">
+                  <Menu.Item style={{ height: "100%" }}>
+                    <span style={{ marginRight: "10px" }}>
+                    Hunt
                     </span>
                   </Menu.Item>
                 </Link>
                 <Menu.Item>
                   <Button
-                    style={{ backgroundColor: "#fe4249" }}
+                    style={{ backgroundColor: "#fe4249", padding:"9px" }}
                     onClick={this.handleLogout}
+                    
                   >
                     Logout
                   </Button>
