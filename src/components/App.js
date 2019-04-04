@@ -7,8 +7,7 @@ import {
   LandingView,
   ProfileView,
   RegisterView,
-  LeaderboardView,
-  AllHuntsView
+  LeaderboardView
 } from ".";
 
 class App extends Component {

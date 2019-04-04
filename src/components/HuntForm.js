@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Card, Modal, Form, Grid, Image } from "semantic-ui-react";
+import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { createMessage } from "../actions";
 import A from "../img/mapQuad1.png";
@@ -95,7 +95,6 @@ class HuntForm extends Component {
                     {/* redirect to the hunt page for the hunt just created */}
                   </Grid.Column>
                   <Grid.Column>
-
                     <div id="radio-button-wrapper">
                       <label>
                         <input type="radio" name="region" value="A" />
