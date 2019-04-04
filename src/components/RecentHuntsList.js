@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, Image, Header } from "semantic-ui-react";
+import brett from "../img/brettaz.jpg";
 
 class RecentHuntsList extends Component {
   render() {
@@ -14,7 +15,7 @@ class RecentHuntsList extends Component {
         <Card.Group>
           <Card>
             <Card.Content>
-              <Image floated="right" size="tiny" src="./img/brettaz.jpg" />
+              <Image floated="right" src={brett} />
               <Link to="hunt">
                 <Card.Header>DownTown Dumpster Derby</Card.Header>
               </Link>

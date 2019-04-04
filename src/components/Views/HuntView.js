@@ -2,21 +2,22 @@ import React, { Component } from "react";
 import { Image, Button, Card, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import StickyHeader from "../StickyHeader";
+import brett from "../../img/brettaz.jpg";
 
 export class HuntView extends Component {
   render() {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Card style={{ margin: "auto" }} size="huge">
+        <Card style={{ margin: "auto", width: "70%" }}>
           <Card.Content>
             <Grid columns={2}>
               <Grid.Row>
                 <Grid.Column>
-                  <Image size="huge" src="" />
+                  <Image src={brett} />
                 </Grid.Column>
                 <Grid.Column>
-                  <Image floated="right" size="huge" src="" />
+                  <Image floated="right" src={brett} />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
