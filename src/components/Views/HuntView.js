@@ -4,8 +4,26 @@ import { Link } from "react-router-dom";
 import StickyHeader from "../StickyHeader";
 import brett from "../../img/brettaz.jpg";
 import A from "../../img/mapQuad1.png";
+import EXIF from "exif-js";
 
 export class HuntView extends Component {
+  getExif(img) {
+    return EXIF.getData(img, function() {
+      let latitude = EXIF.getTag(this, "GPSLatitude");
+      let latDeg = latitude[0];
+      let latMin = latitude[1];
+      let latSec = latitude[2];
+      let latitudeFormat = latDeg + (latMin + latSec / 60) / 60;
+      let longitude = EXIF.getTag(this, "GPSLongitude");
+      let longDeg = longitude[0];
+      let longMin = longitude[1];
+      let longSec = longitude[2];
+      let longitudeFormat = longDeg + (longMin + longSec / 60) / 60;
+      longitudeFormat = longitudeFormat * -1;
+      // return latitudeFormat;
+    });
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -26,9 +44,11 @@ export class HuntView extends Component {
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-            <Card.Header>Name of the Hunt</Card.Header>
-            <Card.Meta>UserName that Submitted the Hunt</Card.Meta>
-            <Card.Description>Hunt Description</Card.Description>
+            <Card.Header>Name</Card.Header>
+            <Card.Meta>UserName</Card.Meta>
+            <Card.Description>
+              {JSON.stringify(this.getExif(brett))}
+            </Card.Description>
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
             <Link to="/hunt">
