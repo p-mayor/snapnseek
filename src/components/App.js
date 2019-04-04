@@ -18,6 +18,9 @@ class App extends Component {
         {/* <Switch>
         <Route exact path="/" render={() => <StickyHeader />} />
         </Switch> */}
+        {/* <Route path="/users/:id" component={User} />
+      <Route path={["/users/:id", "/profile/:id"]} component={User} />
+      Routes without a path always match. */}
 
         <Switch>
           <Route exact path="/" render={() => <LandingView />} />
@@ -25,8 +28,7 @@ class App extends Component {
           <Route exact path="/register" render={() => <RegisterView />} />
           <Route exact path="/home" render={() => <HomeView />} />
           <Route exact path="/profile" render={() => <ProfileView />} />
-          <Route exact path="/hunt" render={() => <HuntView />} />
-          <Route exact path="/hunts" render={() => <AllHuntsView />} />
+          <Route exact path="/hunt/:id" component={HuntView}  />{" "}
         </Switch>
       </React.Fragment>
     );

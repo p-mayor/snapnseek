@@ -1,28 +1,24 @@
 import React, { Component } from "react";
-import { Grid, Segment } from "semantic-ui-react";
-import HuntForm from "../HuntForm";
 import StickyHeader from "../StickyHeader";
-import AllHuntsList from "../AllHuntsList";
-import UserAvatar from "../UserAvatar";
-import UserFeed from "../UserFeed";
+import RecentHuntsList from "../RecentHuntsList";
+import HuntForm from "../HuntForm";
+import { Image, Button, Card, Grid } from "semantic-ui-react";
 
 export class HomeView extends Component {
   render() {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Grid container stackable>
-          <Grid.Row />
-          <Grid.Row columns={2}>
-            <Grid.Column floated="left" width={6}>
-              <UserAvatar />
-              <UserFeed />
+        <Grid columns={3}>
+          <Grid.Row>
+            <Grid.Column>
+              <RecentHuntsList />
             </Grid.Column>
-            <Grid.Column floated="right" width={10}>
-              <HuntForm />
-              <Segment>
-                <AllHuntsList />
-              </Segment>
+            <Grid.Column>
+              <RecentHuntsList />
+            </Grid.Column>
+            <Grid.Column>
+              <RecentHuntsList />
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -30,4 +26,5 @@ export class HomeView extends Component {
     );
   }
 }
+
 export default HomeView;
