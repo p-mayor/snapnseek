@@ -25,7 +25,9 @@ class UpdateProfileForm extends Component {
               onClick={this.handleModal}
               style={{
                 backgroundColor: "#fbf2d0",
-                borderBottom: "1px solid grey"
+                borderBottom: "1px solid grey",
+                width:"90%",
+                margin: "auto"
               }}
             >
               <Icon name="id card outline" />

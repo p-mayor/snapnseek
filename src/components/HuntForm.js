@@ -1,7 +1,12 @@
 import React, { Component } from "react";
-import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
+import { Button, Card, Modal, Form, Grid, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { createMessage } from "../actions";
+import A from "../img/mapQuad1.png";
+import B from "../img/mapQuad2.png";
+import C from "../img/mapQuad3.png";
+import D from "../img/mapQuad4.png";
+
 // import ImageUploader from "./ImageUploader";
 
 class HuntForm extends Component {
@@ -34,25 +39,25 @@ class HuntForm extends Component {
 
   render() {
     return (
-
-        <Modal
-          style={{ width: "100%" }}
-          trigger={
-            <Button
-              onClick={this.handleModal}
-              type="submit"
-              style={{ backgroundColor: "#fe4249", padding: "9px"}}
-            >
-              Create A Hunt
-            </Button>
-          }
-          open={this.state.open}
-          onClose={this.handleModal}
-        >
-          <Card style={{ width: "100%" }}>
-            <Card.Content style={{ margin: "auto" }}>
-              <Form onSubmit={this.handleSubmit} size="large">
-                <Grid container stackable>
+      <Modal
+        style={{ width: "100%" }}
+        trigger={
+          <Button
+            onClick={this.handleModal}
+            type="submit"
+            style={{ backgroundColor: "#fe4249", padding: "9px" }}
+          >
+            Create A Hunt
+          </Button>
+        }
+        open={this.state.open}
+        onClose={this.handleModal}
+      >
+        <Card style={{ width: "100%" }}>
+          <Card.Content style={{ margin: "auto" }}>
+            <Form onSubmit={this.handleSubmit} size="medium">
+              <Grid container stackable columns={2}>
+                <Grid.Row>
                   <Grid.Column>
                     <Form.Input
                       placeholder="Hunt Name"
@@ -61,11 +66,10 @@ class HuntForm extends Component {
                       label="Give Your Hunt a Name"
                       onChange={this.handleChange}
                     />
-                    <Form.Input
-                      placeholder="Location"
+                    <Form.Field
                       name="location"
                       fluid
-                      label="Where is it?"
+                      label="Choose a Region on the Right ->"
                       onChange={this.handleChange}
                     />
                     <Form.TextArea
@@ -88,12 +92,47 @@ class HuntForm extends Component {
                       content="Submit Your Hunt"
                       style={{ backgroundColor: "#ffa366" }}
                     />
+                    {/* redirect to the hunt page for the hunt just created */}
                   </Grid.Column>
-                </Grid>
-              </Form>
-            </Card.Content>
-          </Card>
-        </Modal>
+                  <Grid.Column>
+
+                    <div id="radio-button-wrapper">
+                      <label>
+                        <input type="radio" name="region" value="A" />
+                        <img
+                          src={A}
+                          style={{ height: "180px", width: "150px" }}
+                        />
+                      </label>
+                      <label>
+                        <input type="radio" name="region" value="B" />
+                        <img
+                          src={B}
+                          style={{ height: "180px", width: "150px" }}
+                        />
+                      </label>
+                      <label>
+                        <input type="radio" name="region" value="C" />
+                        <img
+                          src={C}
+                          style={{ height: "180px", width: "150px" }}
+                        />
+                      </label>
+                      <label>
+                        <input type="radio" name="region" value="D" />
+                        <img
+                          src={D}
+                          style={{ height: "180px", width: "150px" }}
+                        />
+                      </label>
+                    </div>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Form>
+          </Card.Content>
+        </Card>
+      </Modal>
     );
   }
 }

@@ -18,7 +18,7 @@ export default class ProfileView extends Component {
           <Grid.Row columns={2}>
             <Grid.Column floated="left" width={6}>
               <UserProfile />
-              <Card style={{ margin: "auto", marginTop: "50px" }}>
+              <Card style={{ margin: "auto", marginTop: "50px", textAlign:"center" }}>
                 <Card.Content style={{ margin: "auto"}}>
                   <UpdateProfilePicture />
                   <UpdateProfileForm />

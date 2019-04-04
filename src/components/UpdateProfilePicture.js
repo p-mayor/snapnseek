@@ -19,8 +19,8 @@ class UpdateProfilePicture extends Component {
               onClick={this.handleModal}
               style={{
                 backgroundColor: "#fe4249",
-                borderBottom: "1px solid grey"
-              }}
+                borderBottom: "1px solid grey",
+                width:"90%"              }}
             >
               <Icon name="id badge outline" />
               Update Image

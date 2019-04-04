@@ -3,6 +3,7 @@ import { Image, Button, Card, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import StickyHeader from "../StickyHeader";
 import brett from "../../img/brettaz.jpg";
+import A from "../../img/mapQuad1.png";
 
 export class HuntView extends Component {
   render() {
@@ -17,7 +18,11 @@ export class HuntView extends Component {
                   <Image src={brett} />
                 </Grid.Column>
                 <Grid.Column>
-                  <Image floated="right" src={brett} />
+                  <Image
+                    floated="right"
+                    src={A}
+                    style={{ height: "97.5%", width: "100%" }}
+                  />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
