@@ -18,6 +18,7 @@ class LandingView extends Component {
         </Header>
         <Divider />
         <LoginForm />
+        <div style={{paddingBottom: "10px"}} />
       </React.Fragment>
     );
   }

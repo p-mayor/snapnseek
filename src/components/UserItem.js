@@ -15,6 +15,9 @@ export class UserItem extends Component {
                   <Card.Header style={{ textAlign: "center" }}>
                     {this.props.displayName}
                   </Card.Header>
+                  <Card.Content>
+                    {this.props.score}
+                  </Card.Content>
                   <UserImage userId={this.props.id} />
                 </Card.Content>
               </Card>
