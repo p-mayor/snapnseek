@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { getMessageById } from "./getMessages.js";
+import { getMessageById } from "./getHunts.js";
 
 export const ADD_LIKE = "ADD_LIKE";
 export const ADD_LIKE_SUCCESS = "ADD_LIKE_SUCCESS";

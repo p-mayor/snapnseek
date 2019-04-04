@@ -25,7 +25,8 @@ export class HuntView extends Component {
                   />
                 </Grid.Column>
               </Grid.Row>
-            </Grid>
+              </Grid>
+
             <Card.Header>Name of the Hunt</Card.Header>
             <Card.Meta>UserName that Submitted the Hunt</Card.Meta>
             <Card.Description>Hunt Description</Card.Description>

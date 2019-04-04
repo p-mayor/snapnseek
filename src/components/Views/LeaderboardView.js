@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table, Image, Header } from "semantic-ui-react";
 import StickyHeader from "../StickyHeader";
+import UserFeed from "../UserFeed";
 
 class LeaderboardView extends Component {
   render() {
@@ -72,6 +73,7 @@ class LeaderboardView extends Component {
             </Table.Row>
           </Table.Body>
         </Table>
+        <UserFeed />
       </React.Fragment>
     );
   }
