@@ -55,7 +55,7 @@ class HuntForm extends Component {
       >
         <Card style={{ width: "100%" }}>
           <Card.Content style={{ margin: "auto" }}>
-            <Form onSubmit={this.handleSubmit} size="medium">
+            <Form onSubmit={this.handleSubmit}>
               <Grid container stackable columns={2}>
                 <Grid.Row>
                   <Grid.Column>
@@ -101,6 +101,7 @@ class HuntForm extends Component {
                         <img
                           src={A}
                           style={{ height: "180px", width: "150px" }}
+                          alt=" "
                         />
                       </label>
                       <label>
@@ -108,6 +109,7 @@ class HuntForm extends Component {
                         <img
                           src={B}
                           style={{ height: "180px", width: "150px" }}
+                          alt=" "
                         />
                       </label>
                       <label>
@@ -115,6 +117,7 @@ class HuntForm extends Component {
                         <img
                           src={C}
                           style={{ height: "180px", width: "150px" }}
+                          alt=" "
                         />
                       </label>
                       <label>
@@ -122,6 +125,7 @@ class HuntForm extends Component {
                         <img
                           src={D}
                           style={{ height: "180px", width: "150px" }}
+                          alt=" "
                         />
                       </label>
                     </div>

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import StickyHeader from "../StickyHeader";
 import RecentHuntsList from "../RecentHuntsList";
-import HuntForm from "../HuntForm";
-import { Image, Button, Card, Grid } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 
 export class HomeView extends Component {
   render() {
