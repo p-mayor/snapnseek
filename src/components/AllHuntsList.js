@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomeMessageItem from "./HuntItem";
+import HuntItem from "./HuntItem";
 import { getMessages, getUsers } from "../actions";
 import { connect } from "react-redux";
 import { Card } from "semantic-ui-react";
@@ -48,7 +48,7 @@ export class AllHuntsList extends Component {
               );
               if (user) {
                 return (
-                  <HomeMessageItem
+                  <HuntItem
                     key={message.id}
                     message={message}
                     displayName={this.matchIdtoUsername(message.userId)}

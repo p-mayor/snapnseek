@@ -14,7 +14,7 @@ class RecentHuntsList extends Component {
         <Card.Group>
           <Card>
             <Card.Content>
-              <Image floated="right" size="tiny" src="../img/brettaz.jpg" />
+              <Image floated="right" size="tiny" src="./img/brettaz.jpg" />
               <Link to="hunt">
                 <Card.Header>DownTown Dumpster Derby</Card.Header>
               </Link>
