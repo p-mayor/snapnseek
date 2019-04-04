@@ -7,12 +7,14 @@ class LandingView extends Component {
     return (
       <React.Fragment>
         <Header
+          as="h1"
           textAlign="center"
           style={{ height: "100%", marginTop: "5px", marginBottom: "0px" }}
-          verticalAlign="middle"
         >
-          <h1>Snap'nSeek</h1>
-          <p>Geocaching but with Pictures.</p>
+          Snap'nSeek
+        </Header>
+        <Header as="h2" textAlign="center">
+          Geocaching but with Pictures.
         </Header>
         <Divider />
         <LoginForm />

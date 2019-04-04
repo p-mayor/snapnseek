@@ -7,7 +7,8 @@ import {
   LandingView,
   ProfileView,
   RegisterView,
-  LeaderboardView
+  LeaderboardView,
+  AllHuntsView
 } from ".";
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path="/home" render={() => <HomeView />} />
           <Route exact path="/profile" render={() => <ProfileView />} />
           <Route exact path="/hunt" render={() => <HuntView />} />
+          <Route exact path="/hunts" render={() => <AllHuntsView />} />
         </Switch>
       </React.Fragment>
     );

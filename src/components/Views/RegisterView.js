@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Form, FormField, Card, Button, Image, Header } from "semantic-ui-react";
+import {
+  Form,
+  FormField,
+  Card,
+  Button,
+  Image,
+  Header
+} from "semantic-ui-react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { registerThenGoToUserProfile as register } from "../../actions";
@@ -20,13 +27,13 @@ class RegisterForm extends Component {
     const { isLoading, err } = this.props;
     return (
       <React.Fragment>
-      <Header
+        <Header
           textAlign="center"
-          style={{ height: "100%", marginTop: "5px", marginBottom:"0px" }}
-          verticalAlign="middle"
+          style={{
+            fontSize: "50px"
+          }}
         >
-          <h1> Snap'nSeek</h1>
-          
+          Snap'nSeek
         </Header>
         <StickyHeader />
         <Card style={{ margin: "auto" }}>
@@ -81,9 +88,9 @@ class RegisterForm extends Component {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  style={{ backgroundColor: "#ffa366" }}
+                  style={{ backgroundColor: "#fe4249" }}
                 >
-                  Happy Hunting
+                  Submit
                 </Button>
               </div>
             </Form>

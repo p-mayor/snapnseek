@@ -23,7 +23,11 @@ class StickyHeader extends Component {
                   <Image
                     src={logo}
                     alt=""
-                    style={{ width: "25px", marginLeft: "10px", height:"25px" }}
+                    style={{
+                      width: "25px",
+                      marginLeft: "10px",
+                      height: "25px"
+                    }}
                   />
                 </Menu.Item>
               </Link>
@@ -38,23 +42,18 @@ class StickyHeader extends Component {
                 </Link>
                 <Link to="/leaderboard">
                   <Menu.Item style={{ height: "100%" }}>
-                    <span style={{ marginRight: "10px" }}>
-                    Leaderboard
-                    </span>
+                    <span style={{ marginRight: "10px" }}>Leaderboard</span>
                   </Menu.Item>
                 </Link>
-                <Link to="/hunt">
+                <Link to="/hunts">
                   <Menu.Item style={{ height: "100%" }}>
-                    <span style={{ marginRight: "10px" }}>
-                    Hunt
-                    </span>
+                    <span style={{ marginRight: "10px" }}>Hunts</span>
                   </Menu.Item>
                 </Link>
                 <Menu.Item>
                   <Button
-                    style={{ backgroundColor: "#fe4249", padding:"9px" }}
+                    style={{ backgroundColor: "#fe4249", padding: "9px" }}
                     onClick={this.handleLogout}
-                    
                   >
                     Logout
                   </Button>
@@ -68,13 +67,6 @@ class StickyHeader extends Component {
               <Menu.Item>
                 <Link to="/">
                   <Button style={{ backgroundColor: "#fe4249" }}>Login</Button>
-                </Link>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to="/register">
-                  <Button style={{ backgroundColor: "#fe4249" }}>
-                    Register
-                  </Button>
                 </Link>
               </Menu.Item>
             </React.Fragment>

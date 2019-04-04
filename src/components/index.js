@@ -6,4 +6,5 @@ export { default as LoginView } from "./LoginForm";
 export { default as ProfileView } from "./Views/ProfileView";
 export { default as LeaderboardView } from "./Views/LeaderboardView";
 export { default as HuntView } from "./Views/HuntView";
+export { default as AllHuntsView } from "./Views/AllHuntsView";
 export { default as StickyHeader } from "./StickyHeader";

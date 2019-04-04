@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { loginThenGoToUserProfile as login } from "../actions";
 import Spinner from "react-spinkit";
 import {
@@ -66,8 +67,16 @@ class LoginForm extends Component {
                   style={{ backgroundColor: "#fe4249" }}
                   className="btn"
                 >
-                  Login
+                  Submit
                 </Button>
+                <Link to="/register">
+                  <Button
+                    style={{ backgroundColor: "#fe4249" }}
+                    className="btn"
+                  >
+                    Register
+                  </Button>
+                </Link>
               </div>
             </Form>
           </Card.Content>
