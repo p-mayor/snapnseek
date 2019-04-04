@@ -36,12 +36,13 @@ class HuntForm extends Component {
     return (
       <Card style={{ width: "100%", textAlign: "center" }}>
         <Card.Content>
-          <Modal style={{width: "100%" }}
+          <Modal
+            style={{ width: "100%" }}
             trigger={
               <Button
                 onClick={this.handleModal}
                 type="submit"
-                style={{ backgroundColor: "#ffa366" }}
+                style={{ backgroundColor: "#fe4249" }}
               >
                 Create Your Own Hunt
               </Button>
@@ -49,8 +50,8 @@ class HuntForm extends Component {
             open={this.state.open}
             onClose={this.handleModal}
           >
-            <Card style={{width: "100%" }}>
-              <Card.Content style={{ margin: "auto"}}>
+            <Card style={{ width: "100%" }}>
+              <Card.Content style={{ margin: "auto" }}>
                 <Form onSubmit={this.handleSubmit} size="large">
                   <Grid container stackable>
                     <Grid.Column>
@@ -88,7 +89,6 @@ class HuntForm extends Component {
                         content="Submit Your Hunt"
                         style={{ backgroundColor: "#ffa366" }}
                       />
-
                     </Grid.Column>
                   </Grid>
                 </Form>

@@ -10,11 +10,10 @@ import {
   LOGOUT_FAIL
 } from "../actions";
 
-
 // testing id {id:"50" , token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTAsImlhdCI6MTU1NDMxMzE5MX0.7U_BlcW_WqzGXpAmKf2HXaLcNphcFWkpyVPWQDLl9Jc" }
 const initialState = {
   loginLoading: false,
-  login: {id:"50" , token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTAsImlhdCI6MTU1NDMxMzE5MX0.7U_BlcW_WqzGXpAmKf2HXaLcNphcFWkpyVPWQDLl9Jc" },
+  login: null,
   loginError: null,
   registerError: null,
   username: null,

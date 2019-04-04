@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Image, List, Grid, Header } from "semantic-ui-react";
+import { Table, Image, Header } from "semantic-ui-react";
 import StickyHeader from "../StickyHeader";
 
 class LeaderboardView extends Component {
