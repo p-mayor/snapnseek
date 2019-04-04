@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import UserImage from "./UserImage";
 import { logoutThenGoToLogin as logout } from "../actions";
 import logo from "../img/bullseye.png";
+import HuntForm from "./HuntForm";
 
 class StickyHeader extends Component {
   handleLogout = () => {
@@ -31,6 +32,9 @@ class StickyHeader extends Component {
                   />
                 </Menu.Item>
               </Link>
+              <Menu.Item>
+                  <HuntForm />
+                </Menu.Item>
               <Menu.Menu position="right">
                 <Link to="/profile">
                   <Menu.Item style={{ height: "100%" }}>
@@ -43,11 +47,6 @@ class StickyHeader extends Component {
                 <Link to="/leaderboard">
                   <Menu.Item style={{ height: "100%" }}>
                     <span style={{ marginRight: "10px" }}>Leaderboard</span>
-                  </Menu.Item>
-                </Link>
-                <Link to="/hunts">
-                  <Menu.Item style={{ height: "100%" }}>
-                    <span style={{ marginRight: "10px" }}>Hunts</span>
                   </Menu.Item>
                 </Link>
                 <Menu.Item>

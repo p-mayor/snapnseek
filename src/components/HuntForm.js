@@ -34,69 +34,66 @@ class HuntForm extends Component {
 
   render() {
     return (
-      <Card style={{ width: "100%", textAlign: "center" }}>
-        <Card.Content>
-          <Modal
-            style={{ width: "100%" }}
-            trigger={
-              <Button
-                onClick={this.handleModal}
-                type="submit"
-                style={{ backgroundColor: "#fe4249" }}
-              >
-                Create Your Own Hunt
-              </Button>
-            }
-            open={this.state.open}
-            onClose={this.handleModal}
-          >
-            <Card style={{ width: "100%" }}>
-              <Card.Content style={{ margin: "auto" }}>
-                <Form onSubmit={this.handleSubmit} size="large">
-                  <Grid container stackable>
-                    <Grid.Column>
-                      <Form.Input
-                        placeholder="Hunt Name"
-                        name="displayName"
-                        fluid
-                        label="Give Your Hunt a Name"
-                        onChange={this.handleChange}
-                      />
-                      <Form.Input
-                        placeholder="Location"
-                        name="location"
-                        fluid
-                        label="Where is it?"
-                        onChange={this.handleChange}
-                      />
-                      <Form.TextArea
-                        placeholder="Tell the communinity about the hunt"
-                        name="about"
-                        label="Hunt Description"
-                        onChange={this.handleChange}
-                      />
-                      <Form.Input
-                        type="file"
-                        placeholder="Location"
-                        name="location"
-                        fluid
-                        label="Submit Your Enticing Hunt Photo"
-                        onChange={this.handleChange}
-                      />
-                      <Form.Button
-                        // type="submit"
-                        onSubmit={this.handleSubmit}
-                        content="Submit Your Hunt"
-                        style={{ backgroundColor: "#ffa366" }}
-                      />
-                    </Grid.Column>
-                  </Grid>
-                </Form>
-              </Card.Content>
-            </Card>
-          </Modal>
-        </Card.Content>
-      </Card>
+
+        <Modal
+          style={{ width: "100%" }}
+          trigger={
+            <Button
+              onClick={this.handleModal}
+              type="submit"
+              style={{ backgroundColor: "#fe4249", padding: "9px"}}
+            >
+              Create A Hunt
+            </Button>
+          }
+          open={this.state.open}
+          onClose={this.handleModal}
+        >
+          <Card style={{ width: "100%" }}>
+            <Card.Content style={{ margin: "auto" }}>
+              <Form onSubmit={this.handleSubmit} size="large">
+                <Grid container stackable>
+                  <Grid.Column>
+                    <Form.Input
+                      placeholder="Hunt Name"
+                      name="displayName"
+                      fluid
+                      label="Give Your Hunt a Name"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Input
+                      placeholder="Location"
+                      name="location"
+                      fluid
+                      label="Where is it?"
+                      onChange={this.handleChange}
+                    />
+                    <Form.TextArea
+                      placeholder="Tell the Community about the hunt"
+                      name="about"
+                      label="Hunt Description"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Input
+                      type="file"
+                      placeholder="Location"
+                      name="location"
+                      fluid
+                      label="Submit Your Enticing Hunt Photo"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Button
+                      // type="submit"
+                      onSubmit={this.handleSubmit}
+                      content="Submit Your Hunt"
+                      style={{ backgroundColor: "#ffa366" }}
+                    />
+                  </Grid.Column>
+                </Grid>
+              </Form>
+            </Card.Content>
+          </Card>
+        </Modal>
     );
   }
 }
