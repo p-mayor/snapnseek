@@ -13,8 +13,6 @@ export class UserFeed extends Component {
     return (
       <Card
         style={{
-          height: "305px",
-          overflow: "scroll",
           margin: "auto",
           marginTop: "30px"
         }}
