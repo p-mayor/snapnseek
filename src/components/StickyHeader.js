@@ -45,9 +45,9 @@ class StickyHeader extends Component {
                     <span style={{ marginRight: "10px" }}>Leaderboard</span>
                   </Menu.Item>
                 </Link>
-                <Link to="/hunt">
+                <Link to="/hunts">
                   <Menu.Item style={{ height: "100%" }}>
-                    <span style={{ marginRight: "10px" }}>Hunt</span>
+                    <span style={{ marginRight: "10px" }}>Hunts</span>
                   </Menu.Item>
                 </Link>
                 <Menu.Item>

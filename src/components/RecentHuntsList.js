@@ -15,7 +15,9 @@ class RecentHuntsList extends Component {
           <Card>
             <Card.Content>
               <Image floated="right" size="tiny" src="../img/brettaz.jpg" />
-              <Card.Header>DownTown Dumpster Derby</Card.Header>
+              <Link to="hunt">
+                <Card.Header>DownTown Dumpster Derby</Card.Header>
+              </Link>
               <Card.Meta>INoScopedJFK</Card.Meta>
               <Card.Description>
                 You'll never be able to <strong>get </strong>in there to get
