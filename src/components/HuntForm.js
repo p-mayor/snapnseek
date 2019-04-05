@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Card, Modal, Form, Grid, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { createMessage } from "../actions";
+import { createTarget } from "../actions";
 import A from "../img/mapQuad1.png";
 import B from "../img/mapQuad2.png";
 import C from "../img/mapQuad3.png";
@@ -12,10 +12,10 @@ import D from "../img/mapQuad4.png";
 class HuntForm extends Component {
   state = { token: this.props.token, text: "", err: null, open: false };
 
-  handleCreateMessage = e => {
+  handleCreateTarget = e => {
     e.preventDefault();
     if (this.state.text.length < 255) {
-      this.props.createMessage(this.state);
+      this.props.createTarget(this.state);
       e.target[0].value = "";
       this.setState({ text: "" });
     } else {
@@ -23,7 +23,7 @@ class HuntForm extends Component {
     }
   };
 
-  // change this to go somehwere
+  // change this to go somewhere
   handleSubmit = () => {
     // this.props.updateUser({ ...this.state });
     this.handleModal();
@@ -141,5 +141,5 @@ export default connect(
   ({ auth }) => ({
     token: auth.login.token
   }),
-  { createMessage }
+  { createTarget }
 )(HuntForm);
