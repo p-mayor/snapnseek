@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import { Table, Image, Header } from "semantic-ui-react";
+import { Table, Image, Header, Card } from "semantic-ui-react";
+import { connect } from "react-redux";
 import StickyHeader from "../StickyHeader";
+import { getUsers } from "../../actions/users";
 import UserFeed from "../UserFeed";
+import UserItem from "../UserItem";
 
 class LeaderboardView extends Component {
+  state = { userList: [] };
+  componentDidMount() {
+    this.props.getUsers();
+  }
   render() {
     return (
       <React.Fragment>
@@ -19,7 +26,6 @@ class LeaderboardView extends Component {
               <Table.HeaderCell>Hunts Conquered</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-
           <Table.Body>
             <Table.Row>
               <Table.Cell>
@@ -73,10 +79,53 @@ class LeaderboardView extends Component {
             </Table.Row>
           </Table.Body>
         </Table>
-        <UserFeed />
+        <Card
+          style={{
+            margin: "auto",
+            marginTop: "30px"
+          }}
+        >
+          <Card.Content>
+            <Card.Header>The World's Greatest Hunters</Card.Header>
+            <Table basic="very" celled collapsing style={{ margin: "auto" }}>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Username</Table.HeaderCell>
+                  <Table.HeaderCell>Hunts Conquered</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Row>
+                {this.props.userList.map(user => (
+                  <UserItem
+                    key={user.id}
+                    displayName={user.displayName}
+                    createdAt={user.createdAt}
+                    id={user.id}
+                    score={user.score}
+                  />
+                ))}
+              </Table.Row>
+            </Table>
+          </Card.Content>
+        </Card>
       </React.Fragment>
     );
   }
 }
 
-export default LeaderboardView;
+const mapStateToProps = state => ({
+  userList: state.users.userList
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getUsers: () => {
+      dispatch(getUsers());
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LeaderboardView);

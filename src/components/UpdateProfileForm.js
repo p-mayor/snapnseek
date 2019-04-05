@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { updateUser } from "../actions/users";
 
 class UpdateProfileForm extends Component {
-  state = { displayName: "", password: "", about: "", open: false };
+  state = { displayName: "", password: "", about: "", score: "", open: false };
   handleChange = (event, { value }) =>
     this.setState({ [event.target.name]: value });
 
@@ -55,6 +55,14 @@ class UpdateProfileForm extends Component {
                       name="password"
                       fluid
                       label="Change Password"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Input
+                      type="score"
+                      placeholder="New score"
+                      name="score"
+                      fluid
+                      label="Give yourself a score"
                       onChange={this.handleChange}
                     />
                     <Form.TextArea

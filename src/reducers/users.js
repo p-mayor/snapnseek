@@ -24,6 +24,7 @@ const initialState = {
     username: "",
     displayName: "",
     about: "",
+    score: 5,
     createdAt: "",
     updatedAt: "",
     messages: []
