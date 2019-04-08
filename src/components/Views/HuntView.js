@@ -7,21 +7,28 @@ import A from "../../img/mapQuad1.png";
 import EXIF from "exif-js";
 
 export class HuntView extends Component {
-  getExif(img) {
-    return EXIF.getData(img, function() {
+  state = { lat: null, long: null, picture: brett };
+
+  getExif() {
+    EXIF.getData(this.state.picture, function(state) {
       let latitude = EXIF.getTag(this, "GPSLatitude");
       let latDeg = latitude[0];
       let latMin = latitude[1];
       let latSec = latitude[2];
       let latitudeFormat = latDeg + (latMin + latSec / 60) / 60;
+
       let longitude = EXIF.getTag(this, "GPSLongitude");
       let longDeg = longitude[0];
       let longMin = longitude[1];
       let longSec = longitude[2];
       let longitudeFormat = longDeg + (longMin + longSec / 60) / 60;
       longitudeFormat = longitudeFormat * -1;
-      // return latitudeFormat;
+      return [latitudeFormat, longitudeFormat];
     });
+  }
+
+  componentDidMount() {
+    // this.state.picture.getExif();
   }
 
   render() {
@@ -46,9 +53,7 @@ export class HuntView extends Component {
             </Grid>
             <Card.Header>Name</Card.Header>
             <Card.Meta>UserName</Card.Meta>
-            <Card.Description>
-              {JSON.stringify(this.getExif(brett))}
-            </Card.Description>
+            <Card.Description>{}</Card.Description>
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
             <Link to="/hunt">
