@@ -25,6 +25,7 @@ export class UserFeed extends Component {
               displayName={user.displayName}
               createdAt={user.createdAt}
               id={user.id}
+              score={user.score}
             />
           ))}
         </Card.Content>

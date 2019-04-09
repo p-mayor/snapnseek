@@ -19,6 +19,12 @@ class HuntForm extends Component {
   };
 
   handleCreateTarget = e => {
+
+  handleCreateMessage = e => {
+    e.preventDefault();
+
+  handleCreateTarget = e => {
+    e.preventDefault();
     if (this.state.text.length < 255) {
       this.props.createTarget(this.state);
       this.setState({ text: "" });

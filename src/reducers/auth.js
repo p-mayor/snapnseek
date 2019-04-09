@@ -10,10 +10,16 @@ import {
   LOGOUT_FAIL
 } from "../actions";
 
-// testing id { id: 1 , token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0NDA0ODY2fQ.qGV02LGcs8Nm6dTFCNme1_UWXZFR9tLutGHIlB9BzxA"}
 const initialState = {
   loginLoading: false,
+<<<<<<< HEAD
   login: null,
+||||||| merged common ancestors
+  login: { id: 1 , token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0NDA0ODY2fQ.qGV02LGcs8Nm6dTFCNme1_UWXZFR9tLutGHIlB9BzxA"},
+=======
+  login: { id: 1 , token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0NDA0ODY2fQ.qGV02LGcs8Nm6dTFCNme1_UWXZFR9tLutGHIlB9BzxA"},
+  // login: null,
+>>>>>>> d89073feaa755216f05c9f449e8ac0a1a50dc44d
   loginError: null,
   registerError: null,
   username: null,
