@@ -15,86 +15,38 @@ class LeaderboardView extends Component {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Header textAlign="center" style={{ marginTop: "25px" }}>
-          {" "}
-          The World's Greatest Hunters
-        </Header>
-        <Table basic="very" celled collapsing style={{ margin: "auto" }}>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Username</Table.HeaderCell>
-              <Table.HeaderCell>Hunts Conquered</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>
-                <Header as="h3" image>
-                  <Image
-                    src="https://react.semantic-ui.com/images/avatar/small/lena.png"
-                    rounded
-                    size="large"
-                  />
-                  <Header.Content>
-                    INoScopedJFK
-                    <Header.Subheader>Target Acquired</Header.Subheader>
-                  </Header.Content>
-                </Header>
-              </Table.Cell>
-              <Table.Cell>1,008</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Header as="h3" image>
-                  <Image
-                    src="https://react.semantic-ui.com/images/avatar/small/matthew.png"
-                    rounded
-                    size="large"
-                  />
-                  <Header.Content>
-                    LactoseTheIntolerant
-                    <Header.Subheader>Cows Must Die</Header.Subheader>
-                  </Header.Content>
-                </Header>
-              </Table.Cell>
-              <Table.Cell>15</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Header as="h3" image>
-                  <Image
-                    src="https://react.semantic-ui.com/images/avatar/small/lindsay.png"
-                    rounded
-                    size="large"
-                  />
-                  <Header.Content>
-                    cward7
-                    <Header.Subheader>
-                      Krabby Patty Connoisseur{" "}
-                    </Header.Subheader>
-                  </Header.Content>
-                </Header>
-              </Table.Cell>
-              <Table.Cell>12</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
         <Card
           style={{
             margin: "auto",
-            marginTop: "30px"
+            marginTop: "30px",
+            width: "90%"
           }}
         >
-          <Card.Content>
-            <Card.Header>The World's Greatest Hunters</Card.Header>
-            <Table basic="very" celled collapsing style={{ margin: "auto" }}>
+          <Card.Content style={{ width: "100%" }}>
+            <Card.Header style={{ textAlign: "center" }}>
+              The World's Greatest Hunters
+            </Card.Header>
+            <br />
+            <Table
+              basic="very"
+              celled
+              collapsing
+              style={{ width: "70%", margin: "auto" }}
+            >
               <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>Username</Table.HeaderCell>
-                  <Table.HeaderCell>Hunts Conquered</Table.HeaderCell>
+                <Table.Row style={{ textAlign: "center" }}>
+                  <Table.HeaderCell style={{ textAlign: "center" }}>
+                    Avatar
+                  </Table.HeaderCell>
+                  <Table.HeaderCell style={{ textAlign: "center" }}>
+                    Username
+                  </Table.HeaderCell>
+                  <Table.HeaderCell style={{ textAlign: "center" }}>
+                    Hunts Conquered
+                  </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
-              <Table.Row>
+              <Table.Body>
                 {this.props.userList.map(user => (
                   <UserItem
                     key={user.id}
@@ -104,7 +56,7 @@ class LeaderboardView extends Component {
                     score={user.score}
                   />
                 ))}
-              </Table.Row>
+              </Table.Body>
             </Table>
           </Card.Content>
         </Card>
