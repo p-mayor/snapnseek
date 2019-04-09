@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ProfileMessageItem from "./ProfileMessageItem";
 import { connect } from "react-redux";
 import { Card } from "semantic-ui-react";
-import { getMessages, getUsers } from "../actions";
+import { getTargets, getUsers } from "../actions";
 
 export class ProfileMessageFeed extends Component {
   render() {
@@ -12,7 +12,7 @@ export class ProfileMessageFeed extends Component {
           <Card.Header as="h2" textAlign="center">
             My Hunts
           </Card.Header>
-          {this.props.loggedInUser.messages
+          {this.props.loggedInUser.targets
             .sort((a, b) => {
               return b.id - a.id;
             })
@@ -38,8 +38,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    getMessages: (limit, offset) => {
-      dispatch(getMessages(limit, offset));
+    getTargets: (limit, offset) => {
+      dispatch(getTargets(limit, offset));
     },
     getUsers: () => {
       dispatch(getUsers());
