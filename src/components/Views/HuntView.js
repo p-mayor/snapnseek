@@ -10,7 +10,9 @@ export class HuntView extends Component {
   state = { lat: null, long: null, picture: brett };
 
   getExif() {
-    EXIF.getData(this.state.picture, function(state) {
+    let imageEl = document.getElementById("image");
+    let componentThis = this;
+    return EXIF.getData(imageEl, function() {
       let latitude = EXIF.getTag(this, "GPSLatitude");
       let latDeg = latitude[0];
       let latMin = latitude[1];
@@ -23,12 +25,14 @@ export class HuntView extends Component {
       let longSec = longitude[2];
       let longitudeFormat = longDeg + (longMin + longSec / 60) / 60;
       longitudeFormat = longitudeFormat * -1;
-      return [latitudeFormat, longitudeFormat];
+      componentThis.setState({ lat: latitudeFormat, long: longitudeFormat });
     });
   }
 
   componentDidMount() {
-    // this.state.picture.getExif();
+    let imageEl = document.getElementById("image");
+    imageEl.onload = this.getExif.bind(this);
+    // this.getExif();
   }
 
   render() {
@@ -40,7 +44,7 @@ export class HuntView extends Component {
             <Grid columns={2}>
               <Grid.Row>
                 <Grid.Column>
-                  <Image src={brett} />
+                  <Image id="image" src={brett} />
                 </Grid.Column>
                 <Grid.Column>
                   <Image
@@ -53,7 +57,7 @@ export class HuntView extends Component {
             </Grid>
             <Card.Header>Name</Card.Header>
             <Card.Meta>UserName</Card.Meta>
-            <Card.Description>{}</Card.Description>
+            <Card.Description id="metaData">{}</Card.Description>
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
             <Link to="/hunt">

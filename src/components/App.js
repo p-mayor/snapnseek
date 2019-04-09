@@ -28,6 +28,7 @@ class App extends Component {
           <Route exact path="/home" render={() => <HomeView />} />
           <Route exact path="/profile" render={() => <ProfileView />} />
           <Route exact path="/hunt" component={HuntView} />
+          <Route path="/hunt/:id" component={HuntView} />
         </Switch>
       </React.Fragment>
     );
