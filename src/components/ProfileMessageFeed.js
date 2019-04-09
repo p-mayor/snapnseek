@@ -28,7 +28,7 @@ export class ProfileMessageFeed extends Component {
             My Hunts
           </Card.Header>
           <InfiniteScroll
-            dataLength={this.props.loggedInUser.messages.length}
+            dataLength={this.props.loggedInUser.guesses.length}
             next={this.fetchMoreData}
             hasMore={this.state.hasMore}
             height={630}

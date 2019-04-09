@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import StickyHeader from "../StickyHeader";
 import RecentHuntsList from "../RecentHuntsList";
-import HuntForm from "../HuntForm";
+import PopularHuntsList from "../PopularHuntsList";
 import { Image, Button, Card, Grid } from "semantic-ui-react";
 
 export class HomeView extends Component {
@@ -9,16 +9,13 @@ export class HomeView extends Component {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Grid columns={3}>
+        <Grid columns={3} textAlign="center">
           <Grid.Row>
             <Grid.Column>
               <RecentHuntsList />
             </Grid.Column>
             <Grid.Column>
-              <RecentHuntsList />
-            </Grid.Column>
-            <Grid.Column>
-              <RecentHuntsList />
+              <PopularHuntsList />
             </Grid.Column>
           </Grid.Row>
         </Grid>

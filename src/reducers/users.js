@@ -27,7 +27,7 @@ const initialState = {
     score: 5,
     createdAt: "",
     updatedAt: "",
-    messages: []
+    guesses: []
   },
   uploadImageResult: "",
   userList: []

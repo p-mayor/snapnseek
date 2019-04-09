@@ -7,30 +7,22 @@ export class UserItem extends Component {
   render() {
     return (
       <React.Fragment>
-      <Grid>
-        <Card style={{ width: "100%" }}>
-          <Card.Content style={{ margin: "auto" }}>
-            <Card.Header style={{ textAlign: "center" }}>
-              {this.props.displayName}
-            </Card.Header>
-            <Card.Content>{this.props.score}</Card.Content>
-            <UserImage userId={this.props.id} />
-          </Card.Content>
-        </Card>
-      </Grid>
-      <Table>
-        <Card style={{ width: "100%" }}>
-          <Card.Content style={{ margin: "auto" }}>
-            <Card.Header style={{ textAlign: "center" }}>
-              {this.props.displayName}
-            </Card.Header>
-            <Card.Content>{this.props.score}</Card.Content>
-            <UserImage userId={this.props.id} />
-          </Card.Content>
-        </Card>
-        </Table>
-        </React.Fragment>
-    )
+        <Table.Row style={{ margin: "auto" }}>
+          <UserImage
+            size="tiny"
+            textAlign="center"
+            userId={this.props.id}
+            style={{ margin: "auto" }}
+          />
+          <Table.Cell style={{ textAlign: "center" }}>
+            {this.props.displayName}
+          </Table.Cell>
+          <Table.Cell style={{ textAlign: "center" }}>
+            {this.props.score} {" Hunts"}
+          </Table.Cell>
+        </Table.Row>
+      </React.Fragment>
+    );
   }
 }
 
