@@ -6,4 +6,3 @@ export * from "./users";
 export * from "./hunts";
 
 export * from "./getMessages";
-export * from "./createMessage";
