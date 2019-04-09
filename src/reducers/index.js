@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import auth from "./auth";
 import likes from "./likes";
-import messages from "./messages";
+import targets from "./targets";
 import users from "./users";
 import hunts from "./hunts";
 
@@ -11,7 +11,7 @@ export default history =>
     router: connectRouter(history),
     auth,
     likes,
-    messages,
+    targets,
     users,
     hunts
   });

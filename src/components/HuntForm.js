@@ -10,22 +10,28 @@ import D from "../img/mapQuad4.png";
 // import ImageUploader from "./ImageUploader";
 
 class HuntForm extends Component {
-  state = { token: this.props.token, text: "", err: null, open: false };
+  state = {
+    token: this.props.token,
+    text: "",
+    err: null,
+    open: false,
+    picture: null
+  };
 
   handleCreateTarget = e => {
-    e.preventDefault();
     if (this.state.text.length < 255) {
       this.props.createTarget(this.state);
-      e.target[0].value = "";
       this.setState({ text: "" });
     } else {
       this.setState({ err: "Kweet too long" });
     }
   };
 
-  // change this to go somewhere
-  handleSubmit = () => {
-    // this.props.updateUser({ ...this.state });
+  // change this to go somehwere
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({ picture: e.target.picture.value });
+    this.handleCreateTarget({ ...this.state });
     this.handleModal();
   };
 
@@ -55,7 +61,7 @@ class HuntForm extends Component {
       >
         <Card style={{ width: "100%" }}>
           <Card.Content style={{ margin: "auto" }}>
-            <Form onSubmit={this.handleSubmit} size="medium">
+            <Form onSubmit={this.handleSubmit}>
               <Grid container stackable columns={2}>
                 <Grid.Row>
                   <Grid.Column>
@@ -81,10 +87,9 @@ class HuntForm extends Component {
                     <Form.Input
                       type="file"
                       placeholder="Location"
-                      name="location"
+                      name="picture"
                       fluid
                       label="Submit Your Enticing Hunt Photo"
-                      onChange={this.handleChange}
                     />
                     <Form.Button
                       // type="submit"
@@ -101,6 +106,7 @@ class HuntForm extends Component {
                         <img
                           src={A}
                           style={{ height: "180px", width: "150px" }}
+                          alt=" "
                         />
                       </label>
                       <label>
@@ -108,6 +114,7 @@ class HuntForm extends Component {
                         <img
                           src={B}
                           style={{ height: "180px", width: "150px" }}
+                          alt=" "
                         />
                       </label>
                       <label>
@@ -115,6 +122,7 @@ class HuntForm extends Component {
                         <img
                           src={C}
                           style={{ height: "180px", width: "150px" }}
+                          alt=" "
                         />
                       </label>
                       <label>
@@ -122,6 +130,7 @@ class HuntForm extends Component {
                         <img
                           src={D}
                           style={{ height: "180px", width: "150px" }}
+                          alt=" "
                         />
                       </label>
                     </div>

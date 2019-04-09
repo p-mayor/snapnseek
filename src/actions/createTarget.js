@@ -1,21 +1,21 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 
 // action types
-export const CREATE_TARGET= "CREATE_TARGET";
+export const CREATE_TARGET = "CREATE_TARGET";
 export const CREATE_TARGET_SUCCESS = "CREATE_TARGET_SUCCESS";
 export const CREATE_TARGET_FAIL = "CREATE_TARGET_FAIL";
 
 const url = domain + "/targets";
 
-export const createTarget= TargetData => dispatch => {
+export const createTarget = targetData => dispatch => {
   dispatch({
     type: CREATE_TARGET
   });
 
   return fetch(url, {
     method: "POST",
-    headers: { ...jsonHeaders, Authorization: `Bearer ${TargetData.token}` },
-    body: JSON.stringify({ text: TargetData.text })
+    headers: { ...jsonHeaders, Authorization: `Bearer ${targetData.token}` },
+    body: JSON.stringify({ text: targetData.text, picture: targetData.picture })
   })
     .then(handleJsonResponse)
     .then(result => {
@@ -26,7 +26,7 @@ export const createTarget= TargetData => dispatch => {
     })
     .catch(err => {
       return Promise.reject(
-        dispatch({ type: CREATE_TARGET_FAIL, payload: err.Target})
+        dispatch({ type: CREATE_TARGET_FAIL, payload: err.message })
       );
     });
 };

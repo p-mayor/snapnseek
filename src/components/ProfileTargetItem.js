@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { toggleAddLike, toggleDeleteLike } from "../actions";
 import moment from "moment";
 
-export class ProfileMessageItem extends Component {
+export class ProfileTargetItem extends Component {
   render() {
     return (
       <Feed className="feedstyle">
@@ -12,19 +12,19 @@ export class ProfileMessageItem extends Component {
           <Feed.Content>
             <Feed.Summary>
               <Feed.Date style={{ paddingBottom: "5px" }}>
-                {moment(this.props.message.createdAt).fromNow()}
+                {moment(this.props.target.createdAt).fromNow()}
               </Feed.Date>
             </Feed.Summary>
             <Card style={{ margin: "auto" }}>
               <Card.Content>
                 <Feed.Extra className="break-word">
-                  {this.props.message.text}
+                  {this.props.target.text}
                 </Feed.Extra>
                 <Feed.Meta>
                   <Feed.Like>
-                    {this.props.message.likes === undefined
+                    {this.props.target.likes === undefined
                       ? 0 + " Likes"
-                      : this.props.message.likes.length + " Likes"}
+                      : this.props.target.likes.length + " Likes"}
                   </Feed.Like>
                 </Feed.Meta>
               </Card.Content>
@@ -44,4 +44,4 @@ export default connect(
     userId: auth.login.id
   }),
   { toggleAddLike, toggleDeleteLike }
-)(ProfileMessageItem);
+)(ProfileTargetItem);
