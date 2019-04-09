@@ -8,14 +8,8 @@ export class HomeView extends Component {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Grid columns={3}>
+        <Grid columns={1}>
           <Grid.Row>
-            <Grid.Column>
-              <RecentHuntsList />
-            </Grid.Column>
-            <Grid.Column>
-              <RecentHuntsList />
-            </Grid.Column>
             <Grid.Column>
               <RecentHuntsList />
             </Grid.Column>

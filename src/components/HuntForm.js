@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { createMessage } from "../actions";
+import { createTarget } from "../actions";
 import A from "../img/mapQuad1.png";
 import B from "../img/mapQuad2.png";
 import C from "../img/mapQuad3.png";
@@ -10,13 +10,17 @@ import D from "../img/mapQuad4.png";
 // import ImageUploader from "./ImageUploader";
 
 class HuntForm extends Component {
-  state = { token: this.props.token, text: "", err: null, open: false };
+  state = {
+    token: this.props.token,
+    text: "",
+    err: null,
+    open: false,
+    picture: null
+  };
 
-  handleCreateMessage = e => {
-    e.preventDefault();
+  handleCreateTarget = e => {
     if (this.state.text.length < 255) {
-      this.props.createMessage(this.state);
-      e.target[0].value = "";
+      this.props.createTarget(this.state);
       this.setState({ text: "" });
     } else {
       this.setState({ err: "Kweet too long" });
@@ -24,8 +28,10 @@ class HuntForm extends Component {
   };
 
   // change this to go somehwere
-  handleSubmit = () => {
-    // this.props.updateUser({ ...this.state });
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({ picture: e.target.picture.value });
+    this.handleCreateTarget({ ...this.state });
     this.handleModal();
   };
 
@@ -81,10 +87,9 @@ class HuntForm extends Component {
                     <Form.Input
                       type="file"
                       placeholder="Location"
-                      name="location"
+                      name="picture"
                       fluid
                       label="Submit Your Enticing Hunt Photo"
-                      onChange={this.handleChange}
                     />
                     <Form.Button
                       // type="submit"
@@ -144,5 +149,5 @@ export default connect(
   ({ auth }) => ({
     token: auth.login.token
   }),
-  { createMessage }
+  { createTarget }
 )(HuntForm);

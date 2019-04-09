@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import ProfileMessageItem from "./ProfileMessageItem";
+import ProfileTargetItem from "./ProfileTargetItem";
 import { connect } from "react-redux";
 import { Card } from "semantic-ui-react";
 import { getTargets, getUsers } from "../actions";
 
-export class ProfileMessageFeed extends Component {
+class ProfileTargetFeed extends Component {
   render() {
     return (
       <Card style={{ width: "100%" }}>
@@ -12,14 +12,14 @@ export class ProfileMessageFeed extends Component {
           <Card.Header as="h2" textAlign="center">
             My Hunts
           </Card.Header>
-          {this.props.loggedInUser.targets
+          {this.props.guesses
             .sort((a, b) => {
               return b.id - a.id;
             })
-            .map(message => (
-              <ProfileMessageItem
-                key={message.id}
-                message={message}
+            .map(target => (
+              <ProfileTargetItem
+                key={target.id}
+                target={target}
                 displayName={this.props.loggedInUser.displayName}
               />
             ))}
@@ -31,7 +31,7 @@ export class ProfileMessageFeed extends Component {
 
 const mapStateToProps = state => ({
   loggedInUser: state.users.loggedInUser,
-  targets: state.targets,
+  guesses: state.users.loggedInUser.guesses,
   userList: state.users.userList,
   isTargetLoading: state.targets.getTargetLoading
 });
@@ -50,4 +50,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfileMessageFeed);
+)(ProfileTargetFeed);

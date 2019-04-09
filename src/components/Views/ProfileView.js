@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import StickyHeader from "../StickyHeader";
 import UserProfile from "../UserProfile";
 import UpdateProfileForm from "../UpdateProfileForm";
-import ProfileMessageFeed from "../ProfileMessageFeed";
+import ProfileTargetFeed from "../ProfileTargetFeed";
 import UpdateProfilePicture from "../UpdateProfilePicture";
 import DeleteUser from "../DeleteUser";
 
@@ -18,8 +18,14 @@ export default class ProfileView extends Component {
           <Grid.Row columns={2}>
             <Grid.Column floated="left" width={6}>
               <UserProfile />
-              <Card style={{ margin: "auto", marginTop: "50px", textAlign:"center" }}>
-                <Card.Content style={{ margin: "auto"}}>
+              <Card
+                style={{
+                  margin: "auto",
+                  marginTop: "50px",
+                  textAlign: "center"
+                }}
+              >
+                <Card.Content style={{ margin: "auto" }}>
                   <UpdateProfilePicture />
                   <UpdateProfileForm />
                   <DeleteUser />
@@ -28,7 +34,7 @@ export default class ProfileView extends Component {
             </Grid.Column>
             <Grid.Column floated="right" width={10}>
               <Segment>
-                <ProfileMessageFeed />
+                <ProfileTargetFeed />
               </Segment>{" "}
             </Grid.Column>
           </Grid.Row>

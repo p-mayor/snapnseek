@@ -26,7 +26,7 @@ const initialState = {
     about: "",
     createdAt: "",
     updatedAt: "",
-    targets: []
+    guesses: []
   },
   uploadImageResult: "",
   userList: []
