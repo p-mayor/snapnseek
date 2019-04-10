@@ -1,17 +1,3 @@
-// Refactor into targets
-// import {
-//   GET_MESSAGE,
-//   GET_MESSAGE_FAIL,
-//   GET_MESSAGE_SUCCESS,
-//   END_OF_MESSAGES,
-//   CREATE_MESSAGE,
-//   CREATE_MESSAGE_FAIL,
-//   CREATE_MESSAGE_SUCCESS,
-//   GET_MESSAGE_BY_ID,
-//   GET_MESSAGE_BY_ID_FAIL,
-//   GET_MESSAGE_BY_ID_SUCCESS
-// } from "../actions";
-
 import {
     CREATE_GUESS,
     CREATE_GUESS_SUCCESS,
@@ -60,4 +46,4 @@ import {
         return state;
     }
   };
-  
+

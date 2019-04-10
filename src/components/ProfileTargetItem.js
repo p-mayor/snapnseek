@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Feed, Card } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { toggleAddLike, toggleDeleteLike } from "../actions";
+// import { toggleAddLike, toggleDeleteLike } from "../actions";
 import moment from "moment";
 
 export class ProfileTargetItem extends Component {
@@ -43,5 +43,5 @@ export default connect(
     token: auth.login.token,
     userId: auth.login.id
   }),
-  { toggleAddLike, toggleDeleteLike }
+  // { toggleAddLike, toggleDeleteLike }
 )(ProfileTargetItem);

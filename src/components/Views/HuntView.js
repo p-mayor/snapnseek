@@ -9,6 +9,8 @@ import D from "../../img/mapquads/D.png";
 import EXIF from "exif-js";
 import { getTargetById } from "../../actions";
 import { connect } from "react-redux";
+import GuessForm from "../GuessForm";
+
 
 export class HuntView extends Component {
   state = { lat: null, long: null, quads: { A, B, C, D } };
@@ -40,8 +42,6 @@ export class HuntView extends Component {
     imageEl.onload = this.getExif.bind(this);
     console.log(imageEl.src);
     this.props.getTargetById(this.props.match.params.id);
-    // console.log(this.props.currentTarget);
-    // console.log("hi");
     this.getExif();
   }
 
@@ -73,9 +73,7 @@ export class HuntView extends Component {
             <Card.Content>{this.props.currentTarget.text}</Card.Content>
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
-            <Link to="/hunt">
-              <Button>Submit Your Guess</Button>
-            </Link>
+            <GuessForm />
           </Card.Content>
         </Card>
       </React.Fragment>
