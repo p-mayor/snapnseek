@@ -9,7 +9,7 @@ class HomeTargetFeed extends Component {
   componentDidMount() {
     this.props.getTargets();
     this.props.getUsers();
-    console.log(this.props.targets.targets);
+    // console.log(this.props.targets.targets);
   }
   matchIdtoUsername = userId => {
     let user = this.props.userList.find(user => user.id === userId);

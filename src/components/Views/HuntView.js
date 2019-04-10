@@ -17,6 +17,7 @@ export class HuntView extends Component {
     let componentThis = this;
     if (imageEl) {
       EXIF.getData(imageEl, function() {
+        console.log("hi");
         let latitude = EXIF.getTag(this, "GPSLatitude");
         let latDeg = latitude[0];
         let latMin = latitude[1];
@@ -30,16 +31,26 @@ export class HuntView extends Component {
         let longitudeFormat = longDeg + (longMin + longSec / 60) / 60;
         longitudeFormat = longitudeFormat * -1;
         componentThis.setState({ lat: latitudeFormat, long: longitudeFormat });
-        console.log("hi");
       });
     }
   }
 
   componentDidMount() {
+    // let imageEl = document.getElementById("image");
+    // imageEl.onload = this.getExif.bind(this);
+    // console.log(imageEl.src);
+    this.props.getTargetById(this.props.match.params.id);
+    // console.log(this.props.currentTarget);
+    // console.log("hi");
+    this.getExif();
+  }
+
+  componentDidUpdate() {
     let imageEl = document.getElementById("image");
     imageEl.onload = this.getExif.bind(this);
+    console.log(imageEl);
     console.log(imageEl.src);
-    this.props.getTargetById(this.props.match.params.id);
+    // this.props.getTargetById(this.props.match.params.id);
     // console.log(this.props.currentTarget);
     // console.log("hi");
     this.getExif();
@@ -54,16 +65,14 @@ export class HuntView extends Component {
             <Grid columns={2}>
               <Grid.Row>
                 <Grid.Column>
-                  <Image id="image" src={this.props.currentTarget.pictureURL} />
+                  <img id="image" src={this.props.currentTarget.pictureURL} />
                 </Grid.Column>
                 <Grid.Column>
                   <Image
-                    floated="right"
                     src={
                       this.state.quads[this.props.currentTarget.neighborhood]
                     }
                     style={{ height: "97.5%", width: "100%" }}
-                    onChange={this.getExif}
                   />
                 </Grid.Column>
               </Grid.Row>
