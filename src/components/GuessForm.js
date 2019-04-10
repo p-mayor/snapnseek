@@ -76,7 +76,7 @@ class GuessForm extends Component {
                         style={{ backgroundColor: "#ffa366" }}
                         animated
                       >
-                        <Button.Content visible>Logout</Button.Content>
+                        <Button.Content visible>Submit Your Guess</Button.Content>
                         <Button.Content hidden>
                           <Icon name="motorcycle" />
                         </Button.Content>
