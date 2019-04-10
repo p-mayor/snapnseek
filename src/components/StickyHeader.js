@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Button, Image } from "semantic-ui-react";
+import { Menu, Button, Image, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import UserImage from "./UserImage";
@@ -33,8 +33,8 @@ class StickyHeader extends Component {
                 </Menu.Item>
               </Link>
               <Menu.Item>
-                  <HuntForm />
-                </Menu.Item>
+                <HuntForm />
+              </Menu.Item>
               <Menu.Menu position="right">
                 <Link to="/profile">
                   <Menu.Item style={{ height: "100%" }}>
@@ -51,10 +51,16 @@ class StickyHeader extends Component {
                 </Link>
                 <Menu.Item>
                   <Button
-                    style={{ backgroundColor: "#fe4249", padding: "9px" }}
+                    className="theme"
+                    animated
+                    compact
+                    style={{ padding: "9px" }}
                     onClick={this.handleLogout}
                   >
-                    Logout
+                    <Button.Content visible>Logout</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="motorcycle" />
+                    </Button.Content>
                   </Button>
                 </Menu.Item>
               </Menu.Menu>
@@ -65,7 +71,7 @@ class StickyHeader extends Component {
             <React.Fragment>
               <Menu.Item>
                 <Link to="/">
-                  <Button style={{ backgroundColor: "#fe4249" }}>Login</Button>
+                  <Button className="theme">Login</Button>
                 </Link>
               </Menu.Item>
             </React.Fragment>

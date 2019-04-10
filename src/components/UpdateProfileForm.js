@@ -23,11 +23,11 @@ class UpdateProfileForm extends Component {
           trigger={
             <Button
               onClick={this.handleModal}
+              compact
+              className="theme2"
               style={{
-                backgroundColor: "#fbf2d0",
                 borderBottom: "1px solid grey",
-                width:"90%",
-                margin: "auto"
+                width: "90%"
               }}
             >
               <Icon name="id card outline" />
@@ -73,12 +73,16 @@ class UpdateProfileForm extends Component {
                     />
                   </Grid.Column>
                   <Grid.Column floated="right" width={3}>
-                    <Form.Button
-                      // type="submit"
+                    <Button
                       onSubmit={this.handleSubmit}
-                      content="Submit changes"
-                      style={{ backgroundColor: "#fe4249" }}
-                    />
+                      className="theme"
+                      animated
+                    >
+                      <Button.Content visible>Save Changes</Button.Content>
+                      <Button.Content hidden>
+                        <Icon size="large" name="save" />
+                      </Button.Content>
+                    </Button>
                   </Grid.Column>
                 </Grid>
               </Form>

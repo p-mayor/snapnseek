@@ -9,7 +9,8 @@ import {
   Card,
   Button,
   Image,
-  Header
+  Header,
+  Icon
 } from "semantic-ui-react";
 import logo from "../img/whitebullseye.png";
 
@@ -61,20 +62,27 @@ class LoginForm extends Component {
                 {err && <p style={{ color: "red" }}>{err}</p>}
               </FormField>
               <div style={{ textAlign: "center" }}>
-                <Button
-                  type="submit"
-                  disabled={isLoading}
-                  style={{ backgroundColor: "#fe4249" }}
-                  className="btn"
-                >
-                  Submit
-                </Button>
-                <Link to="/register">
+                <Link to="/home">
                   <Button
-                    style={{ backgroundColor: "#fe4249" }}
-                    className="btn"
+                    compact
+                    animated
+                    positive
+                    className="theme"
+                    type="submit"
+                    disabled={isLoading}
                   >
-                    Register
+                    <Button.Content visible>Login</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="fort awesome" />
+                    </Button.Content>
+                  </Button>
+                </Link>
+                <Link to="/register">
+                  <Button animated positive compact className="theme">
+                    <Button.Content visible>Register</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="add user" />
+                    </Button.Content>
                   </Button>
                 </Link>
               </div>

@@ -16,11 +16,13 @@ class UpdateProfilePicture extends Component {
         <Modal
           trigger={
             <Button
+              className="theme"
+              compact
               onClick={this.handleModal}
               style={{
-                backgroundColor: "#fe4249",
                 borderBottom: "1px solid grey",
-                width:"90%"              }}
+                width: "90%"
+              }}
             >
               <Icon name="id badge outline" />
               Update Image
@@ -32,6 +34,7 @@ class UpdateProfilePicture extends Component {
           <Card style={{ width: "100%" }}>
             <Card.Content>
               <Card.Header>Upload a New Profile Picture</Card.Header>
+              <br />
               <ImageUploader onSubmissionComplete={this.handleModal} />
             </Card.Content>
           </Card>

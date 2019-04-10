@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color:#fbf2d0;
 }
 
 .menu {
@@ -16,7 +17,7 @@ body {
 }
 
 .feedstyle:nth-child(even) {
-  background-color: #fe4249;
+  background-color: #ffc7c4;
 }
 
 .feedstyle:hover {
@@ -44,3 +45,25 @@ body {
 [type=radio]:checked + img {
   outline: 2px solid #f00;
 }
+
+.ui.theme { 
+  background-color: #ffc7c4;
+}
+
+.ui.theme2 { 
+  background-color: #fbf2d0;
+}
+
+.ui.theme:hover { 
+  background-color: #f43838;
+}
+
+.ui.theme2:hover { 
+  background-color: #ffff00;
+}
+
+.ui.modal { 
+  background-color: #f43838;
+}
+
+
