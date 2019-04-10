@@ -22,7 +22,7 @@ class HomeTargetFeed extends Component {
       <Card style={{ width: "100%" }}>
         <Card.Content>
           <Card.Header as="h2" textAlign="center">
-            Hunts
+            All Hunts
           </Card.Header>
           {this.props.targets.targets.map(target => (
             <HomeTargetItem
