@@ -11,12 +11,12 @@ export const GET_TARGET_BY_ID_SUCCESS = "GET_TARGET_BY_ID_SUCCESS";
 export const GET_TARGET_BY_ID_FAIL = "GET_TARGET_BY_ID_FAIL";
 
 const url = domain + "/targets";
-export const getTargets = (limit = 20, offset = 0) => dispatch => {
+export const getTargets = () => dispatch => {
   dispatch({
     type: GET_TARGET
   });
 
-  return fetch(url + `?limit=${limit}&offset=${offset}`, {
+  return fetch(url, {
     method: "GET",
     headers: jsonHeaders
   })
@@ -29,7 +29,7 @@ export const getTargets = (limit = 20, offset = 0) => dispatch => {
       } else {
         return dispatch({
           type: GET_TARGET_SUCCESS,
-          payload: result
+          payload: result.targets
         });
       }
     })

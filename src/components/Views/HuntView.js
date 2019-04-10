@@ -57,7 +57,11 @@ export class HuntView extends Component {
             </Grid>
             <Card.Header>Name</Card.Header>
             <Card.Meta>UserName</Card.Meta>
-            <Card.Description id="metaData">{}</Card.Description>
+            <Card.Description id="metaData">
+              lat:{this.state.lat}
+              <br />
+              long:{this.state.long}
+            </Card.Description>
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
             <Link to="/hunt">
