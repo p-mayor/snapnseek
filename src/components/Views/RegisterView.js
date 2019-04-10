@@ -85,10 +85,9 @@ class RegisterForm extends Component {
                 {err && <p style={{ color: "red" }}>{err}</p>}
               </FormField>
               <div style={{ textAlign: "center" }}>
-                <Button
+                <Button class = "theme"
                   type="submit"
                   disabled={isLoading}
-                  style={{ backgroundColor: "#fe4249" }}
                 >
                   Submit
                 </Button>

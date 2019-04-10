@@ -19,8 +19,9 @@ class DeleteUser extends Component {
         <Modal
           trigger={
             <Button
+              className="theme"
               onClick={this.handleModal}
-              style={{ backgroundColor: "#fe4249", width: "90%" }}
+              style={{ width: "90%" }}
             >
               <Icon name="user delete" />
               Delete Profile
@@ -34,7 +35,7 @@ class DeleteUser extends Component {
             <p>Are you sure you want to delete your account?</p>
           </Modal.Content>
           <Modal.Actions>
-            <Button basic color="red" onClick={this.handleModal}>
+            <Button  color="red" inverted onClick={this.handleModal}>
               <Icon name="remove" /> No
             </Button>
             <Button color="green" inverted onClick={this.handleDelete}>
