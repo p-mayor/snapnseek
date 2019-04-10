@@ -8,27 +8,22 @@ class GuessForm extends Component {
   state = {
     token: this.props.token,
     text: null,
-    title: null,
     err: null,
     open: false,
     picture: null,
     guessId: null,
-    neighborhood: null
   };
 
   // change this to go somewhere
   handleSubmit = e => {
     e.preventDefault();
-    console.log(e.guess);
-    let formData = new FormData(e.guess);
-    console.log(...formData.values());
+    let formData = new FormData(e.target); // refers to event target
     this.props.createGuess(formData);
     this.handleModal();
   };
 
   handleChange = e => {
-    console.log(e.guess.value);
-    this.setState({ [e.guess.name]: e.guess.value });
+    this.setState({ [e.target.name]: e.target.value }); // refers to even target
   };
 
   handleModal = () => {
@@ -70,7 +65,6 @@ class GuessForm extends Component {
                         name="picture"
                         fluid
                         label="What's Your Guess"
-                        onChange={this.handleChange}
                       />
                       <Form.Button
                         // type="submit"
