@@ -58,15 +58,14 @@ class HuntForm extends Component {
         trigger={
           <Button
             onClick={this.handleModal}
-            compact
             type="submit"
             className="theme"
-            style={{ padding: "9px" }}
+            style={{ padding: "9px"}}
             animated
           >
-            <Button.Content visible> Create A Hunt</Button.Content>
+            <Button.Content visible> Create A Target</Button.Content>
             <Button.Content hidden>
-              <Icon name="target" size="large" />
+              <Icon name="target" />
             </Button.Content>
           </Button>
         }
@@ -104,7 +103,7 @@ class HuntForm extends Component {
                       <Form.Button
                         compact
                         onSubmit={this.handleSubmit}
-                        content="Submit Your Hunt"
+                        content="Submit Your Target"
                         style={{ backgroundColor: "#ffa366" }}
                       />
                       {/* redirect to the hunt page for the hunt just created */}
