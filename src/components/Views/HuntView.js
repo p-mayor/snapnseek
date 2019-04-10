@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Button, Card, Grid } from "semantic-ui-react";
+import { Image, Button, Card, Grid, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import StickyHeader from "../StickyHeader";
 import A from "../../img/mapquads/A.png";
@@ -10,7 +10,7 @@ import EXIF from "exif-js";
 import { getTargetById } from "../../actions";
 import { connect } from "react-redux";
 import GuessForm from "../GuessForm";
-
+import ProfileTargetFeed from "../ProfileTargetFeed";
 
 export class HuntView extends Component {
   state = { lat: null, long: null, quads: { A, B, C, D } };
@@ -76,6 +76,10 @@ export class HuntView extends Component {
             <GuessForm />
           </Card.Content>
         </Card>
+        <br />
+        <Segment>
+          <ProfileTargetFeed />
+        </Segment>{" "}
       </React.Fragment>
     );
   }

@@ -10,7 +10,7 @@ class ProfileTargetFeed extends Component {
       <Card style={{ width: "100%" }}>
         <Card.Content>
           <Card.Header as="h2" textAlign="center">
-            My Hunts
+            All Guesses on This Target
           </Card.Header>
           {this.props.guesses
             .sort((a, b) => {
