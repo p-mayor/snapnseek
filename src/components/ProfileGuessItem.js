@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Feed, Card, Image, Segment, Grid } from "semantic-ui-react";
+import { Feed, Card, Image, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 // import { toggleAddLike, toggleDeleteLike } from "../actions";
 import moment from "moment";

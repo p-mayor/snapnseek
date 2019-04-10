@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Button, Card, Grid, Segment } from "semantic-ui-react";
+import { Image, Card, Grid, Segment } from "semantic-ui-react";
 import StickyHeader from "../StickyHeader";
 import A from "../../img/mapquads/A.png";
 import B from "../../img/mapquads/B.png";
@@ -68,7 +68,7 @@ export class HuntView extends Component {
               <Grid.Row>
                 <Grid.Column>
                   {this.props.currentTarget.pictureURL && (
-                    <img id="image" src={this.props.currentTarget.pictureURL} />
+                    <img id="image" src={this.props.currentTarget.pictureURL} alt=''/>
                   )}
                 </Grid.Column>
                 <Grid.Column>

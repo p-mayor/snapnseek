@@ -23,7 +23,7 @@ class TargetGuessFeed extends Component {
             All Guesses on This Target
           </Card.Header>
           {this.props.guesses
-            .filter(guess => guess.targetId == this.props.targetId)
+            .filter(guess => guess.targetId === this.props.targetId)
             .map(guess => (
               <TargetGuessItem
                 key={guess.id}

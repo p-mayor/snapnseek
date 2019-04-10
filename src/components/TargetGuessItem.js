@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Feed, Card, CardContent } from "semantic-ui-react";
+import { Feed, Card } from "semantic-ui-react";
 import { connect } from "react-redux";
 // import { toggleAddLike, toggleDeleteLike } from "../actions";
 import moment from "moment";
@@ -94,6 +94,7 @@ export class TargetGuessItem extends Component {
                   src={this.props.target.pictureURL}
                   style={{ width: "100%" }}
                   id={this.props.id}
+                  alt=''
                 />
               </Card.Content>
             </Card>
