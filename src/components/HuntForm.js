@@ -60,7 +60,7 @@ class HuntForm extends Component {
             onClick={this.handleModal}
             type="submit"
             className="theme"
-            style={{ padding: "9px"}}
+            style={{ padding: "9px" }}
             animated
           >
             <Button.Content visible> Create A Target</Button.Content>
@@ -100,12 +100,18 @@ class HuntForm extends Component {
                         label="Submit Your Enticing Hunt Photo"
                         onChange={this.handleChange}
                       />
-                      <Form.Button
-                        compact
+                      <Button
                         onSubmit={this.handleSubmit}
-                        content="Submit Your Target"
                         style={{ backgroundColor: "#ffa366" }}
-                      />
+                        animated
+                      >
+                        <Button.Content visible>
+                          Submit Your Target
+                        </Button.Content>
+                        <Button.Content hidden>
+                          <Icon name="share" />
+                        </Button.Content>
+                      </Button>
                       {/* redirect to the hunt page for the hunt just created */}
                     </Form.Field>
                   </Grid.Column>
