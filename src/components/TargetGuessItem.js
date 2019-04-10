@@ -105,13 +105,16 @@ export class TargetGuessItem extends Component {
               </Card.Content>
               {this.state.lat && (
                 <Card.Content>
-                  Distance to Target:{" "}
-                  {this.distanceInKmBetweenEarthCoordinates(
-                    this.props.lat,
-                    this.props.long,
-                    this.state.lat,
-                    this.state.long
-                  )}
+                  Distance from Target:{" "}
+                  {Math.trunc(
+                    this.distanceInKmBetweenEarthCoordinates(
+                      this.props.lat,
+                      this.props.long,
+                      this.state.lat,
+                      this.state.long
+                    ) * 3280.84
+                  )}{" "}
+                  feet.
                 </Card.Content>
               )}
             </Card>
