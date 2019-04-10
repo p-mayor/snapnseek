@@ -1,5 +1,4 @@
 export * from "./auth";
-export * from "./getTargets";
-export * from "./createTarget";
+export * from "./targets";
 export * from "./users";
 export * from "./hunts";
