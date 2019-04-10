@@ -2,9 +2,19 @@ import React, { Component } from "react";
 import TargetGuessItem from "./TargetGuessItem";
 import { connect } from "react-redux";
 import { Card } from "semantic-ui-react";
-import { getTargets, getUsers } from "../actions";
+import { getUsers, getGuesses } from "../actions";
 
 class TargetGuessFeed extends Component {
+  componentDidMount() {
+    this.props.getGuesses();
+  }
+
+  // componentDidUpdate(prevState) {
+  //   if (prevState !== this.state) {
+  //     this.props.getGuesses();
+  //   }
+  // }
+
   render() {
     return (
       <Card style={{ width: "100%", margin: "auto" }}>
@@ -13,14 +23,15 @@ class TargetGuessFeed extends Component {
             All Guesses on This Target
           </Card.Header>
           {this.props.guesses
-            .sort((a, b) => {
-              return b.id - a.id;
-            })
+            .filter(guess => guess.targetId == this.props.targetId)
             .map(guess => (
               <TargetGuessItem
                 key={guess.id}
+                id={guess.id}
                 target={guess}
                 displayName={this.props.loggedInUser.displayName}
+                lat={this.props.lat}
+                long={this.props.long}
               />
             ))}
         </Card.Content>
@@ -31,15 +42,15 @@ class TargetGuessFeed extends Component {
 
 const mapStateToProps = state => ({
   loggedInUser: state.users.loggedInUser,
-  guesses: state.users.loggedInUser.guesses,
+  guesses: state.guesses.guesses,
   userList: state.users.userList,
   isTargetLoading: state.targets.getTargetLoading
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    getGuesses: (limit, offset) => {
-      dispatch(getTargets(limit, offset));
+    getGuesses: () => {
+      dispatch(getGuesses());
     },
     getUsers: () => {
       dispatch(getUsers());

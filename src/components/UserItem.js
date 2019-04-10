@@ -8,12 +8,14 @@ export class UserItem extends Component {
     return (
       <React.Fragment>
         <Table.Row style={{ margin: "auto" }}>
-          <UserImage
-            size="tiny"
-            textAlign="center"
-            userId={this.props.id}
-            style={{ margin: "auto" }}
-          />
+          <Table.Cell>
+            <UserImage
+              size="tiny"
+              textAlign="center"
+              userId={this.props.id}
+              style={{ margin: "auto" }}
+            />
+          </Table.Cell>
           <Table.Cell style={{ textAlign: "center" }}>
             {this.props.displayName}
           </Table.Cell>

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { createGuess } from "../actions"
-
+import { createGuess } from "../actions";
 
 class GuessForm extends Component {
   state = {
@@ -11,7 +10,7 @@ class GuessForm extends Component {
     err: null,
     open: false,
     picture: null,
-    guessId: null,
+    guessId: null
   };
 
   // change this to go somewhere
@@ -65,6 +64,11 @@ class GuessForm extends Component {
                         name="picture"
                         fluid
                         label="What's Your Guess"
+                      />
+                      <Form.Input
+                        type="hidden"
+                        name="targetId"
+                        value={Number(this.props.targetId)}
                       />
                       <Form.Button
                         // type="submit"

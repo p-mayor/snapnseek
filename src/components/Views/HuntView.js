@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Image, Button, Card, Grid, Segment } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 import StickyHeader from "../StickyHeader";
 import A from "../../img/mapquads/A.png";
 import B from "../../img/mapquads/B.png";
@@ -13,16 +12,15 @@ import GuessForm from "../GuessForm";
 import TargetGuessFeed from "../TargetGuessFeed";
 
 export class HuntView extends Component {
-  state = { lat: null, long: null, quads: { A, B, C, D } };
+  state = { quads: { A, B, C, D } };
   getExif() {
     // let imageEl = document.getElementById("image");
     let newImageEl = document.createElement("img");
     newImageEl.src = this.props.currentTarget.pictureURL;
-    // console.log(imageEl);
+
     let componentThis = this;
     if (newImageEl) {
       return EXIF.getData(newImageEl, function() {
-        console.log("hi");
         let latitude = EXIF.getTag(this, "GPSLatitude");
         let longitude = EXIF.getTag(this, "GPSLongitude");
         if (latitude && longitude) {
@@ -45,25 +43,19 @@ export class HuntView extends Component {
   }
 
   componentDidMount() {
-    // let imageEl = document.getElementById("image");
-    // imageEl.onload = this.getExif.bind(this);
-    // console.log(imageEl.src);
     this.props.getTargetById(this.props.match.params.id);
-    
+    let imageEl = document.getElementById("image");
+    if (imageEl) {
+      imageEl.onload = this.getExif.bind(this);
+    }
+  }
   componentDidUpdate(prevProps) {
     if (
       this.props.currentTarget.pictureURL !== prevProps.currentTarget.pictureURL
     ) {
       let imageEl = document.getElementById("image");
       imageEl.onload = this.getExif.bind(this);
-      console.log(imageEl);
-      console.log(imageEl.src);
     }
-    // this.props.getTargetById(this.props.match.params.id);
-    // console.log(this.props.currentTarget);
-    // console.log("hi");
-    // this.getExif();
-
   }
 
   render() {
@@ -94,12 +86,16 @@ export class HuntView extends Component {
             <Card.Content>{this.props.currentTarget.text}</Card.Content>
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
-            <GuessForm />
+            <GuessForm targetId={Number(this.props.match.params.id)} />
           </Card.Content>
         </Card>
         <br />
         <Segment style={{ width: "70%", margin: "auto" }}>
-          <TargetGuessFeed />
+          <TargetGuessFeed
+            lat={this.state.lat}
+            long={this.state.long}
+            targetId={this.props.match.params.id}
+          />
         </Segment>{" "}
       </React.Fragment>
     );

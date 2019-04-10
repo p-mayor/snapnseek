@@ -12,8 +12,8 @@ import {
 
 const initialState = {
   loginLoading: false,
-  login: { id: 5, token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNTU0OTA3Njk1fQ.GgGO5i7asR0oUtwCw8rkdfgtzsdl4Ki12swL1iVoV7s"},
-  // login: null,
+  // login: { id: 5, token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNTU0OTA3Njk1fQ.GgGO5i7asR0oUtwCw8rkdfgtzsdl4Ki12swL1iVoV7s"},
+  login: null,
   loginError: null,
   registerError: null,
   username: null,
