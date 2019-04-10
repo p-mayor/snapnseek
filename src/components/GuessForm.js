@@ -70,7 +70,13 @@ class GuessForm extends Component {
                         fluid
                         label="What's Your Guess"
                       />
+                      <Form.Input
+                        type="hidden"
+                        name="targetId"
+                        value={Number(this.props.targetId)}
+                      />
                       <Button
+
                         onSubmit={this.handleSubmit}
                         content="Submit Your Guess"
                         style={{ backgroundColor: "#ffa366" }}
