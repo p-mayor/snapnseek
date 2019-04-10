@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Feed, Card } from "semantic-ui-react";
+import { Feed, Card, Image, Segment, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 // import { toggleAddLike, toggleDeleteLike } from "../actions";
 import moment from "moment";
 
-export class ProfileTargetItem extends Component {
+export class ProfileGuessItem extends Component {
   render() {
     return (
       <Feed className="feedstyle">
@@ -15,20 +15,20 @@ export class ProfileTargetItem extends Component {
                 {moment(this.props.target.createdAt).fromNow()}
               </Feed.Date>
             </Feed.Summary>
-            <Card style={{ margin: "auto" }}>
-              <Card.Content>
-                <Feed.Extra className="break-word">
-                  {this.props.target.text}
-                </Feed.Extra>
-                <Feed.Meta>
-                  <Feed.Like>
-                    {this.props.target.likes === undefined
-                      ? 0 + " Likes"
-                      : this.props.target.likes.length + " Likes"}
-                  </Feed.Like>
-                </Feed.Meta>
-              </Card.Content>
-            </Card>
+              <Grid columns={2} style={{ margin: "auto", width: "90%" }}>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Image size="tiny" src={this.props.target.pictureURL} />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <Card.Content>
+                      <Feed.Extra className="break-word">
+                        {this.props.target.text}
+                      </Feed.Extra>
+                    </Card.Content>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
           </Feed.Content>
         </Feed.Event>
       </Feed>
@@ -42,6 +42,6 @@ export default connect(
     err: auth.loginError,
     token: auth.login.token,
     userId: auth.login.id
-  }),
+  })
   // { toggleAddLike, toggleDeleteLike }
-)(ProfileTargetItem);
+)(ProfileGuessItem);
