@@ -1,6 +1,6 @@
 // export const domain = "https://rocky-island-86345.herokuapp.com";
-// export const domain = "https://snapnseek-api.herokuapp.com";
-export const domain = "http://localhost:3000";
+export const domain = "https://snapnseek-api.herokuapp.com";
+// export const domain = "http://localhost:3000";
 
 export const jsonHeaders = {
   "Content-Type": "application/json",

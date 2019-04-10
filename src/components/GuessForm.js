@@ -1,0 +1,99 @@
+import React, { Component } from "react";
+import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { createGuess } from "../actions"
+
+
+class GuessForm extends Component {
+  state = {
+    token: this.props.token,
+    text: null,
+    title: null,
+    err: null,
+    open: false,
+    picture: null,
+    guessId: null,
+    neighborhood: null
+  };
+
+  // change this to go somewhere
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(e.guess);
+    let formData = new FormData(e.guess);
+    console.log(...formData.values());
+    this.props.createGuess(formData);
+    this.handleModal();
+  };
+
+  handleChange = e => {
+    console.log(e.guess.value);
+    this.setState({ [e.guess.name]: e.guess.value });
+  };
+
+  handleModal = () => {
+    this.setState({ open: !this.state.open });
+  };
+
+  render() {
+    return (
+      <Modal
+        style={{ width: "100%" }}
+        trigger={
+          <Button
+            onClick={this.handleModal}
+            type="submit"
+            style={{ backgroundColor: "#bffe42", padding: "9px" }}
+          >
+            Submit Your Guess
+          </Button>
+        }
+        open={this.state.open}
+        onClose={this.handleModal}
+      >
+        <Card style={{ width: "100%" }}>
+          <Card.Content style={{ margin: "auto" }}>
+            <Form onSubmit={this.handleSubmit}>
+              <Grid container stackable columns={2}>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Form.Field>
+                      <Form.TextArea
+                        placeholder="Insert Comments About Your Guess"
+                        name="text"
+                        label="Guess Description"
+                        onChange={this.handleChange}
+                      />
+                      <Form.Input
+                        type="file"
+                        placeholder="Location"
+                        name="picture"
+                        fluid
+                        label="What's Your Guess"
+                        onChange={this.handleChange}
+                      />
+                      <Form.Button
+                        // type="submit"
+                        onSubmit={this.handleSubmit}
+                        content="Submit Your Guess"
+                        style={{ backgroundColor: "#ffa366" }}
+                      />
+                      {/* redirect to the hunt page for the hunt just created */}
+                    </Form.Field>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Form>
+          </Card.Content>
+        </Card>
+      </Modal>
+    );
+  }
+}
+
+export default connect(
+  ({ auth }) => ({
+    token: auth.login.token
+  }),
+  { createGuess }
+)(GuessForm);
