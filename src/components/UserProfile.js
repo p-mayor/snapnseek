@@ -17,7 +17,7 @@ class UserProfile extends Component {
           <Card.Meta style={{ marginTop: "10px" }}>
             Seeking since {moment(this.props.createdAt).format("MMMM DD YYYY")}
           </Card.Meta>
-          <Card style={{ backgroundColor: "#fe4249" }}>
+          <Card className="theme">
             <Card.Content>
               <Card.Header as="h4">Bio:</Card.Header>
               <Card.Description className="break-word">

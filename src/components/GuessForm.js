@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
+import { Button, Card, Modal, Form, Grid, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { createGuess } from "../actions";
 
@@ -37,9 +37,14 @@ class GuessForm extends Component {
           <Button
             onClick={this.handleModal}
             type="submit"
-            style={{ backgroundColor: "#bffe42", padding: "9px" }}
+            style={{ padding: "9px" }}
+            positive
+            animated
           >
-            Submit Your Guess
+            <Button.Content visible> Submit Your Guess</Button.Content>
+            <Button.Content hidden>
+              <Icon name="picture" />
+            </Button.Content>
           </Button>
         }
         open={this.state.open}
@@ -70,12 +75,18 @@ class GuessForm extends Component {
                         name="targetId"
                         value={Number(this.props.targetId)}
                       />
-                      <Form.Button
-                        // type="submit"
+                      <Button
+
                         onSubmit={this.handleSubmit}
                         content="Submit Your Guess"
                         style={{ backgroundColor: "#ffa366" }}
-                      />
+                        animated
+                      >
+                        <Button.Content visible>Submit Your Guess</Button.Content>
+                        <Button.Content hidden>
+                          <Icon name="motorcycle" />
+                        </Button.Content>
+                      </Button>
                       {/* redirect to the hunt page for the hunt just created */}
                     </Form.Field>
                   </Grid.Column>

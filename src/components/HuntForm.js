@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
+import { Button, Card, Modal, Form, Grid, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { createTarget } from "../actions";
 import A from "../img/mapquads/A.png";
@@ -59,9 +59,14 @@ class HuntForm extends Component {
           <Button
             onClick={this.handleModal}
             type="submit"
-            style={{ backgroundColor: "#fe4249", padding: "9px" }}
+            className="theme"
+            style={{ padding: "9px" }}
+            animated
           >
-            Create A Hunt
+            <Button.Content visible> Create A Target</Button.Content>
+            <Button.Content hidden>
+              <Icon name="target" />
+            </Button.Content>
           </Button>
         }
         open={this.state.open}
@@ -95,12 +100,18 @@ class HuntForm extends Component {
                         label="Submit Your Enticing Hunt Photo"
                         onChange={this.handleChange}
                       />
-                      <Form.Button
-                        // type="submit"
+                      <Button
                         onSubmit={this.handleSubmit}
-                        content="Submit Your Hunt"
                         style={{ backgroundColor: "#ffa366" }}
-                      />
+                        animated
+                      >
+                        <Button.Content visible>
+                          Submit Your Target
+                        </Button.Content>
+                        <Button.Content hidden>
+                          <Icon name="share" />
+                        </Button.Content>
+                      </Button>
                       {/* redirect to the hunt page for the hunt just created */}
                     </Form.Field>
                   </Grid.Column>
