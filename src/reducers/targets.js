@@ -29,7 +29,7 @@ const initialState = {
   getTargetError: null,
   createTargetLoading: false,
   createTargetError: null,
-  currentTarget: null,
+  currentTarget: {},
   targets: []
 };
 
@@ -52,7 +52,7 @@ export default (state = initialState, action) => {
     case GET_TARGET_BY_ID:
       return state;
     case GET_TARGET_BY_ID_SUCCESS:
-      return { ...state, currentTarget: action.payload };
+      return { ...state, currentTarget: action.payload["target"] };
     case GET_TARGET_BY_ID_FAIL:
       return state;
 
