@@ -46,15 +46,19 @@ class LeaderboardView extends Component {
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {this.props.userList.map(user => (
-                  <UserItem
-                    key={user.id}
-                    displayName={user.displayName}
-                    createdAt={user.createdAt}
-                    id={user.id}
-                    score={user.score}
-                  />
-                ))}
+                {this.props.userList
+                  .sort(function(a, b) {
+                    return b.score - a.score;
+                  })
+                  .map(user => (
+                    <UserItem
+                      key={user.id}
+                      displayName={user.displayName}
+                      createdAt={user.createdAt}
+                      id={user.id}
+                      score={user.score}
+                    />
+                  ))}
               </Table.Body>
             </Table>
           </Card.Content>
