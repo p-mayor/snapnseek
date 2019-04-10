@@ -15,7 +15,10 @@
 import {
   CREATE_TARGET,
   CREATE_TARGET_SUCCESS,
-  CREATE_TARGET_FAIL
+  CREATE_TARGET_FAIL,
+  GET_TARGET,
+  GET_TARGET_SUCCESS,
+  GET_TARGET_FAIL
 } from "../actions";
 
 const initialState = {
@@ -33,6 +36,12 @@ export default (state = initialState, action) => {
     case CREATE_TARGET_SUCCESS:
       return state;
     case CREATE_TARGET_FAIL:
+      return state;
+    case GET_TARGET:
+      return state;
+    case GET_TARGET_SUCCESS:
+      return { ...state, targets: action.payload };
+    case GET_TARGET_FAIL:
       return state;
     default:
       return state;

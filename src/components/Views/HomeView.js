@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import StickyHeader from "../StickyHeader";
-import RecentHuntsList from "../RecentHuntsList";
 import PopularHuntsList from "../PopularHuntsList";
-import { Image, Button, Card, Grid } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
+import HomeTargetFeed from "../HomeTargetFeed";
 
 export class HomeView extends Component {
   render() {
@@ -12,7 +12,7 @@ export class HomeView extends Component {
         <Grid columns={3} textAlign="center">
           <Grid.Row>
             <Grid.Column>
-              <RecentHuntsList />
+              <HomeTargetFeed />
             </Grid.Column>
             <Grid.Column>
               <PopularHuntsList />

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Table, Image, Header, Card } from "semantic-ui-react";
+import { Table, Card } from "semantic-ui-react";
 import { connect } from "react-redux";
 import StickyHeader from "../StickyHeader";
 import { getUsers } from "../../actions/users";
-import UserFeed from "../UserFeed";
 import UserItem from "../UserItem";
 
 class LeaderboardView extends Component {

@@ -1,4 +1,4 @@
-import { domain, jsonHeaders, handleJsonResponse } from "./constants";
+import { domain, handleJsonResponse } from "./constants";
 
 // action types
 export const CREATE_TARGET = "CREATE_TARGET";
@@ -7,15 +7,18 @@ export const CREATE_TARGET_FAIL = "CREATE_TARGET_FAIL";
 
 const url = domain + "/targets";
 
-export const createTarget = targetData => dispatch => {
+export const createTarget = targetData => (dispatch, getState) => {
   dispatch({
     type: CREATE_TARGET
   });
 
   return fetch(url, {
     method: "POST",
-    headers: { ...jsonHeaders, Authorization: `Bearer ${targetData.token}` },
-    body: JSON.stringify({ text: targetData.text, picture: targetData.picture })
+    headers: {
+      // "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${getState().auth.login.token}`
+    },
+    body: targetData
   })
     .then(handleJsonResponse)
     .then(result => {

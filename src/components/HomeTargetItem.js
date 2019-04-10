@@ -1,36 +1,16 @@
 import React, { Component } from "react";
-import { Feed, Icon, Card } from "semantic-ui-react";
+import { Feed, Card, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { toggleAddLike, toggleDeleteLike } from "../actions";
 import UserImage from "./UserImage";
 import moment from "moment";
 
-// NEED TO CHANGE THIs FROM HOME MESSAGE ITEM TO HOME TARGET ITEM
-
-export class MessageItem extends Component {
-  handleAddLike = e => {
-    this.props.toggleAddLike(this.props.message.id);
-  };
-
-  handleDeleteLike = () => {
-    let curUserId = this.props.userId;
-    let curLike = this.props.message.likes.filter(like => {
-      if (curUserId === like.userId) {
-        return like;
-      }
-      return null;
-    });
-    if (curLike.length !== 0) {
-      this.props.toggleDeleteLike(curLike[0].id, this.props.message.id);
-    }
-  };
-
+export class HomeTargetItem extends Component {
   render() {
     return (
       <Feed className="feedstyle">
         <Feed.Event style={{ paddingBottom: "20px" }}>
           <Feed.Label>
-            <UserImage userId={this.props.message.userId} size="mini" />
+            <UserImage userId={this.props.target.userId} size="mini" />
           </Feed.Label>
           <Feed.Content>
             <Feed.Summary style={{ paddingBottom: "5px" }}>
@@ -38,25 +18,18 @@ export class MessageItem extends Component {
                 {this.props.displayName}
               </Feed.User>
               <Feed.Date>
-                {moment(this.props.message.createdAt).fromNow()}
+                {moment(this.props.target.createdAt).fromNow()}
               </Feed.Date>
             </Feed.Summary>
             <Card style={{ margin: "auto" }}>
+              <Feed.Extra className="break-word">
+                {this.props.target.title}
+              </Feed.Extra>
               <Card.Content>
+                <Image src={this.props.target.pictureURL} />
                 <Feed.Extra className="break-word">
-                  {this.props.message.text}
+                  {this.props.target.text}
                 </Feed.Extra>
-                <Feed.Meta>
-                  <Feed.Like onClick={this.handleAddLike}>
-                    <Icon name="like" />
-                    {this.props.message.likes === undefined
-                      ? 0 + " Likes"
-                      : this.props.message.likes.length + " Likes"}
-                  </Feed.Like>
-                  <Feed.Like>
-                    <Icon name="thumbs down" onClick={this.handleDeleteLike} />
-                  </Feed.Like>
-                </Feed.Meta>
               </Card.Content>
             </Card>
           </Feed.Content>
@@ -73,5 +46,5 @@ export default connect(
     token: auth.login.token,
     userId: auth.login.id
   }),
-  { toggleAddLike, toggleDeleteLike }
-)(MessageItem);
+  null
+)(HomeTargetItem);

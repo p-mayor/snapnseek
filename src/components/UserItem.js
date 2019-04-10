@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Card, Table, Header } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 import { connect } from "react-redux";
 import UserImage from "./UserImage";
 
@@ -27,11 +27,10 @@ export class UserItem extends Component {
 }
 
 export default connect(
-  ({ auth, likes }) => ({
+  ({ auth }) => ({
     isLoading: auth.loginLoading,
     err: auth.loginError,
-    token: auth.login.token,
-    likeId: likes.likeId
+    token: auth.login.token
   }),
   null
 )(UserItem);
