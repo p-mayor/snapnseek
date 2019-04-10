@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { updateUser } from "../actions/users";
 
 class UpdateProfileForm extends Component {
-  state = { displayName: "", password: "", about: "", score: "", open: false };
+  // state = { displayName: "", password: "", about: "", score: "", open: false };
+  state = { open: false };
   handleChange = (event, { value }) =>
     this.setState({ [event.target.name]: value });
 
