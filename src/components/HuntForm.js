@@ -28,7 +28,7 @@ class HuntForm extends Component {
   //   }
   // };
 
-  // change this to go somehwere
+  // change this to go somewhere
   handleSubmit = e => {
     e.preventDefault();
     console.log(e.target);

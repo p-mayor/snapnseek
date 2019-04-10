@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import StickyHeader from "../StickyHeader";
 import UserProfile from "../UserProfile";
 import UpdateProfileForm from "../UpdateProfileForm";
-import ProfileTargetFeed from "../ProfileTargetFeed";
+import ProfileGuessFeed from "../ProfileGuessFeed";
 import UpdateProfilePicture from "../UpdateProfilePicture";
 import DeleteUser from "../DeleteUser";
 
@@ -34,7 +34,7 @@ export default class ProfileView extends Component {
             </Grid.Column>
             <Grid.Column floated="right" width={10}>
               <Segment>
-                <ProfileTargetFeed />
+                <ProfileGuessFeed />
               </Segment>{" "}
             </Grid.Column>
           </Grid.Row>

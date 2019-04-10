@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import ProfileTargetItem from "./ProfileTargetItem";
+import ProfileGuessItem from "./ProfileGuessItem";
 import { connect } from "react-redux";
 import { Card } from "semantic-ui-react";
 import { getTargets, getUsers } from "../actions";
 
-class ProfileTargetFeed extends Component {
+class ProfileGuessFeed extends Component {
   render() {
     return (
       <Card style={{ width: "100%" }}>
         <Card.Content>
           <Card.Header as="h2" textAlign="center">
-            My Hunts
+            All Your Guesses
           </Card.Header>
           {this.props.guesses
             .sort((a, b) => {
               return b.id - a.id;
             })
             .map(target => (
-              <ProfileTargetItem
+              <ProfileGuessItem
                 key={target.id}
                 target={target}
                 displayName={this.props.loggedInUser.displayName}
@@ -38,7 +38,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    getTargets: (limit, offset) => {
+    getGuesses: (limit, offset) => {
       dispatch(getTargets(limit, offset));
     },
     getUsers: () => {
@@ -50,4 +50,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfileTargetFeed);
+)(ProfileGuessFeed);

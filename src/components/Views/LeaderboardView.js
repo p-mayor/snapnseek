@@ -29,7 +29,6 @@ class LeaderboardView extends Component {
             <Table
               basic="very"
               celled
-              collapsing
               style={{ width: "70%", margin: "auto" }}
             >
               <Table.Header>
@@ -63,6 +62,7 @@ class LeaderboardView extends Component {
             </Table>
           </Card.Content>
         </Card>
+        <br />
       </React.Fragment>
     );
   }

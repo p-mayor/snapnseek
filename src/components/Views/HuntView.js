@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Button, Card, Grid } from "semantic-ui-react";
+import { Image, Button, Card, Grid, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import StickyHeader from "../StickyHeader";
 import A from "../../img/mapquads/A.png";
@@ -9,6 +9,8 @@ import D from "../../img/mapquads/D.png";
 import EXIF from "exif-js";
 import { getTargetById } from "../../actions";
 import { connect } from "react-redux";
+import GuessForm from "../GuessForm";
+import TargetGuessFeed from "../TargetGuessFeed";
 
 export class HuntView extends Component {
   state = { lat: null, long: null, quads: { A, B, C, D } };
@@ -47,11 +49,7 @@ export class HuntView extends Component {
     // imageEl.onload = this.getExif.bind(this);
     // console.log(imageEl.src);
     this.props.getTargetById(this.props.match.params.id);
-    // console.log(this.props.currentTarget);
-    // console.log("hi");
-    // this.getExif();
-  }
-
+    
   componentDidUpdate(prevProps) {
     if (
       this.props.currentTarget.pictureURL !== prevProps.currentTarget.pictureURL
@@ -65,6 +63,7 @@ export class HuntView extends Component {
     // console.log(this.props.currentTarget);
     // console.log("hi");
     // this.getExif();
+
   }
 
   render() {
@@ -95,11 +94,13 @@ export class HuntView extends Component {
             <Card.Content>{this.props.currentTarget.text}</Card.Content>
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
-            <Link to="/hunt">
-              <Button>Submit Your Guess</Button>
-            </Link>
+            <GuessForm />
           </Card.Content>
         </Card>
+        <br />
+        <Segment style={{ width: "70%", margin: "auto" }}>
+          <TargetGuessFeed />
+        </Segment>{" "}
       </React.Fragment>
     );
   }

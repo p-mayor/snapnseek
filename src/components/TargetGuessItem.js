@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Feed, Card } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { toggleAddLike, toggleDeleteLike } from "../actions";
+// import { toggleAddLike, toggleDeleteLike } from "../actions";
 import moment from "moment";
 
-export class ProfileTargetItem extends Component {
+export class TargetGuessItem extends Component {
   render() {
     return (
       <Feed className="feedstyle">
@@ -15,6 +15,9 @@ export class ProfileTargetItem extends Component {
                 {moment(this.props.target.createdAt).fromNow()}
               </Feed.Date>
             </Feed.Summary>
+            <Feed.Extra>
+              {this.props.target.picture}
+            </Feed.Extra>
             <Card style={{ margin: "auto" }}>
               <Card.Content>
                 <Feed.Extra className="break-word">
@@ -43,5 +46,5 @@ export default connect(
     token: auth.login.token,
     userId: auth.login.id
   }),
-  { toggleAddLike, toggleDeleteLike }
-)(ProfileTargetItem);
+  // { toggleAddLike, toggleDeleteLike }
+)(TargetGuessItem);

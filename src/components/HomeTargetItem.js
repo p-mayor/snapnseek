@@ -7,6 +7,22 @@ import moment from "moment";
 
 export class HomeTargetItem extends Component {
   render() {
+    let neighborhood
+    switch (this.props.target.neighborhood){
+      case "A":
+      neighborhood= "NorthWest Indy";
+      break;
+      case "B":
+      neighborhood= "NorthEast Indy";
+      break;
+      case "C":
+      neighborhood= "SouthWest Indy";
+      break;
+      case "D":
+      neighborhood= "SouthEast Indy";
+      break;
+    }
+
     return (
       <Feed className="feedstyle">
         <UserImage userId={this.props.target.userId} size="mini" />
@@ -29,7 +45,7 @@ export class HomeTargetItem extends Component {
             </Card.Content>
             <Card.Content>
               <Feed.Extra className="break-word">
-                Neighborhood: {this.props.target.neighborhood}
+                Neighborhood: {neighborhood}
               </Feed.Extra>
             </Card.Content>
             <Card.Content extra style={{ margin: "auto" }}>
