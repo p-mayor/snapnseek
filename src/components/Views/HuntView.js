@@ -10,7 +10,7 @@ import EXIF from "exif-js";
 import { getTargetById } from "../../actions";
 import { connect } from "react-redux";
 import GuessForm from "../GuessForm";
-import ProfileTargetFeed from "../ProfileTargetFeed";
+import TargetGuessFeed from "../TargetGuessFeed";
 
 export class HuntView extends Component {
   state = { lat: null, long: null, quads: { A, B, C, D } };
@@ -77,8 +77,8 @@ export class HuntView extends Component {
           </Card.Content>
         </Card>
         <br />
-        <Segment>
-          <ProfileTargetFeed />
+        <Segment style={{ width: "70%", margin: "auto" }}>
+          <TargetGuessFeed />
         </Segment>{" "}
       </React.Fragment>
     );
