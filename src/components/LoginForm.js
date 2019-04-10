@@ -40,7 +40,7 @@ class LoginForm extends Component {
             Snap'nSeek
           </Header>
           <Card.Content>
-            <Form onSubmit={this.handleLogin}>
+            <Form>
               <FormField>
                 <Form.Input
                   placeholder="Username"
@@ -64,6 +64,7 @@ class LoginForm extends Component {
               <div style={{ textAlign: "center" }}>
                 <Link to="/home">
                   <Button
+                    onClick={this.handleLogin}
                     compact
                     animated
                     positive
