@@ -2,21 +2,21 @@ import React, { Component } from "react";
 import { Button, Card, Modal, Form, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { createTarget } from "../actions";
-import A from "../img/mapQuad1.png";
-import B from "../img/mapQuad2.png";
-import C from "../img/mapQuad3.png";
-import D from "../img/mapQuad4.png";
+import A from "../img/mapquads/A.png";
+import B from "../img/mapquads/B.png";
+import C from "../img/mapquads/C.png";
+import D from "../img/mapquads/D.png";
 
 class HuntForm extends Component {
   state = {
     token: this.props.token,
-    text: "",
-    title: "",
+    text: null,
+    title: null,
     err: null,
     open: false,
     picture: null,
-    targetId: "1",
-    neighborhood: "A"
+    targetId: null,
+    neighborhood: null
   };
 
   // handleCreateTarget = e => {

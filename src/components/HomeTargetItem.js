@@ -9,19 +9,15 @@ export class HomeTargetItem extends Component {
   render() {
     return (
       <Feed className="feedstyle">
-        <Feed.Label>
-          <UserImage userId={this.props.target.userId} size="mini" />
-        </Feed.Label>
+        <UserImage userId={this.props.target.userId} size="mini" />
+        <Feed.User style={{ color: "black" }}>
+          {this.props.displayName}
+        </Feed.User>
+        <Feed.Date>{moment(this.props.target.createdAt).fromNow()}</Feed.Date>
+
         <Feed.Content style={{ paddingBottom: "60px" }}>
-          <Feed.Summary style={{ paddingBottom: "5px" }}>
-            <Feed.User style={{ color: "black" }}>
-              {this.props.displayName}
-            </Feed.User>
-            <Feed.Date>
-              {moment(this.props.target.createdAt).fromNow()}
-            </Feed.Date>
-          </Feed.Summary>
-          <Card style={{ margin: "auto" }}>
+          <Feed.Summary style={{ paddingBottom: "5px" }} />
+          <Card style={{ margin: "auto", width: "90%" }}>
             <Card.Header className="break-word">
               {this.props.target.title}
             </Card.Header>
@@ -37,7 +33,7 @@ export class HomeTargetItem extends Component {
               </Feed.Extra>
             </Card.Content>
             <Card.Content extra style={{ margin: "auto" }}>
-              <Link to="/hunt">
+              <Link to={`targets/${this.props.target.id}`}>
                 <Button>Check it Out</Button>
               </Link>
             </Card.Content>

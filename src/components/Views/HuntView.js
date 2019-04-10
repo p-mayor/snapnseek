@@ -3,12 +3,16 @@ import { Image, Button, Card, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import StickyHeader from "../StickyHeader";
 import brett from "../../img/brettaz.jpg";
-import A from "../../img/mapQuad1.png";
+import A from "../../img/mapquads/A.png";
+import B from "../../img/mapquads/B.png";
+import C from "../../img/mapquads/C.png";
+import D from "../../img/mapquads/D.png";
 import EXIF from "exif-js";
+import { getTargetById } from "../../actions";
+import { connect } from "react-redux";
 
 export class HuntView extends Component {
-  state = { lat: null, long: null, picture: brett };
-
+  state = { lat: null, long: null, picture: brett, quads: { A, B, C, D } };
   getExif() {
     let imageEl = document.getElementById("image");
     let componentThis = this;
@@ -32,6 +36,9 @@ export class HuntView extends Component {
   componentDidMount() {
     let imageEl = document.getElementById("image");
     imageEl.onload = this.getExif.bind(this);
+    this.props.getTargetById(this.props.match.params.id);
+    console.log(this.props.currentTarget);
+    console.log("hi");
     // this.getExif();
   }
 
@@ -44,30 +51,45 @@ export class HuntView extends Component {
             <Grid columns={2}>
               <Grid.Row>
                 <Grid.Column>
-                  <Image id="image" src={brett} />
+                  <Image
+                    id="image"
+                    src={
+                      this.props.currentTarget &&
+                      this.props.currentTarget.target.pictureURL
+                    }
+                  />
                 </Grid.Column>
                 <Grid.Column>
                   <Image
                     floated="right"
-                    src={A}
+                    src={
+                      this.props.currentTarget &&
+                      this.state.quads[
+                        this.props.currentTarget.target.neighborhood.toUpperCase()
+                      ]
+                    }
                     style={{ height: "97.5%", width: "100%" }}
                   />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-            <Card.Header>Name</Card.Header>
-            <Card.Meta>UserName</Card.Meta>
-            <Card.Description id="metaData">
-              lat:{this.state.lat}
-              <br />
-              long:{this.state.long}
-            </Card.Description>
+            {this.props.currentTarget && (
+              <Card.Header>{this.props.currentTarget.target.title}</Card.Header>
+            )}
+            {this.props.currentTarget && (
+              <Card.Meta>
+                posted by: {this.props.currentTarget.target.userId}
+              </Card.Meta>
+            )}
+            {this.props.currentTarget && (
+              <Card.Content>
+                {this.props.currentTarget.target.text}
+              </Card.Content>
+            )}
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
             <Link to="/hunt">
-              <Button basic color="green">
-                Submit Your Image
-              </Button>
+              <Button>Submit Your Guess</Button>
             </Link>
           </Card.Content>
         </Card>
@@ -76,47 +98,9 @@ export class HuntView extends Component {
   }
 }
 
-export default HuntView;
-
-// {
-/* <Segment
-      inverted
-      vertical
-      style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
-    >
-      <Container textAlign="center">
-        <Grid divided inverted stackable>
-          <Grid.Column width={3}>
-            <Header inverted as="h4" content="Hunts 1" />
-          </Grid.Column>
-          <Grid.Column width={3}>
-            <Header inverted as="h4" content="Hunts 2" />
-          </Grid.Column>
-          <Grid.Column width={3}>
-            <Header inverted as="h4" content="Hunts 3" />
-          </Grid.Column>
-          <Grid.Column width={7}>
-            <Header inverted as="h4" content="Footer Header" />
-            <p>Hunts inside the foot Hunts could help Huntssers.</p>
-          </Grid.Column>
-        </Grid>
-
-        <Divider inverted section />
-        <Image centered size="mini" src="/logo.png" />
-        <List horizontal inverted divided link size="small">
-          <List.Item as="a" href="#">
-            Hunts Map
-          </List.Item>
-          <List.Item as="a" href="#">
-            Contact Hunts
-          </List.Item>
-          <List.Item as="a" href="#">
-            Hunts and Conditions
-          </List.Item>
-          <List.Item as="a" href="#">
-            Privacy Hunts
-          </List.Item>
-        </List>
-      </Container>
-    </Segment> */
-// }
+export default connect(
+  ({ targets }) => ({
+    currentTarget: targets.currentTarget
+  }),
+  { getTargetById }
+)(HuntView);
