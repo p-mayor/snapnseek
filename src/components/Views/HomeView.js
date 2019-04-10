@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import StickyHeader from "../StickyHeader";
-import PopularHuntsList from "../PopularHuntsList";
 import { Grid } from "semantic-ui-react";
 import HomeTargetFeed from "../HomeTargetFeed";
 
