@@ -13,7 +13,8 @@ export const CREATE_GUESS = "CREATE_GUESS";
 export const CREATE_GUESS_SUCCESS = "CREATE_GUESS_SUCCESS";
 export const CREATE_GUESS_FAIL = "CREATE_GUESS_FAIL";
 
-const url = domain + "/guess";
+
+const url = domain + "/guesses";
 export const getGuesses = () => dispatch => {
   dispatch({
     type: GET_GUESS
@@ -25,14 +26,15 @@ export const getGuesses = () => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
-      if (result.guess.length === 0) {
+
+      if (result.guesses.length === 0) {
         return dispatch({
           type: END_OF_GUESSES
         });
       } else {
         return dispatch({
           type: GET_GUESS_SUCCESS,
-          payload: result.guess
+          payload: result.guesses
         });
       }
     })
@@ -54,7 +56,8 @@ export const getGuessById = guessId => (dispatch, getState) => {
   })
     .then(handleJsonResponse)
     .then(result => {
-      let index = getState().guess.guess.findIndex(
+
+      let index = getState().guesses.guesses.findIndex(
         guess => guess.id === guessId
       );
       return dispatch({
