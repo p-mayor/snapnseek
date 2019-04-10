@@ -9,8 +9,8 @@ export class HomeView extends Component {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Grid columns={3} textAlign="center">
-          <Grid.Row>
+        <Grid textAlign="center">
+          <Grid.Row columns={3}>
             <Grid.Column>
               <HomeTargetFeed />
             </Grid.Column>
