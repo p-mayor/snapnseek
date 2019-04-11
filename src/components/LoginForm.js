@@ -70,6 +70,7 @@ class LoginForm extends Component {
                     className="theme"
                     type="submit"
                     disabled={isLoading}
+                    style={{marginRight: "15px"}}
                   >
                     <Button.Content visible>Login</Button.Content>
                     <Button.Content hidden>
