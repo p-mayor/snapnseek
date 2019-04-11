@@ -1,5 +1,6 @@
 //getTargets method
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
+import { push } from "connected-react-router";
 
 // action types
 export const GET_TARGET = "GET_TARGET";
@@ -95,6 +96,10 @@ export const createTarget = targetData => (dispatch, getState) => {
         dispatch({ type: CREATE_TARGET_FAIL, payload: err.message })
       );
     });
+};
+
+export const createTargetThenGetTargets = targetData => dispatch => {
+  return dispatch(createTarget(targetData)).then(() => dispatch(getTargets()));
 };
 
 export default getTargets;

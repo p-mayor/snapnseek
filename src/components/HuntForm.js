@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Card, Modal, Form, Grid, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { createTarget } from "../actions";
+import { createTargetThenGetTargets as createTarget } from "../actions";
 import A from "../img/mapquads/A.png";
 import B from "../img/mapquads/B.png";
 import C from "../img/mapquads/C.png";

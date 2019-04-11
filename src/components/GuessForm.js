@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Button, Card, Modal, Form, Grid, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { createGuess } from "../actions";
+import { getGuesses } from "../actions";
+import { createGuessThenGetGuesses as createGuess } from "../actions";
 
 class GuessForm extends Component {
   state = {
@@ -38,7 +39,7 @@ class GuessForm extends Component {
             onClick={this.handleModal}
             type="submit"
             style={{ padding: "9px" }}
-            className = "theme"
+            className="theme"
             animated
           >
             <Button.Content visible> Submit Your Guess</Button.Content>
@@ -76,13 +77,14 @@ class GuessForm extends Component {
                         value={Number(this.props.targetId)}
                       />
                       <Button
-
                         onSubmit={this.handleSubmit}
                         // content="Submit Your Guess"
                         style={{ backgroundColor: "#ffa366" }}
                         animated
                       >
-                        <Button.Content visible>Submit Your Guess</Button.Content>
+                        <Button.Content visible>
+                          Submit Your Guess
+                        </Button.Content>
                         <Button.Content hidden>
                           <Icon name="motorcycle" />
                         </Button.Content>
@@ -104,5 +106,5 @@ export default connect(
   ({ auth }) => ({
     token: auth.login.token
   }),
-  { createGuess }
+  { createGuess, getGuesses }
 )(GuessForm);
