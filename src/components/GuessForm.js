@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Card, Modal, Form, Grid, Icon } from "semantic-ui-react";
+import { Button, Card, Modal, Form, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getGuesses } from "../actions";
 import { createGuessThenGetGuesses as createGuess } from "../actions";
