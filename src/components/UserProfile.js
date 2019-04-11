@@ -14,7 +14,7 @@ class UserProfile extends Component {
       <Card style={{ margin: "auto" }}>
         <Card.Content>
           <UserAvatar />
-          <Card.Meta style={{ marginTop: "10px" }}>
+          <Card.Meta style={{ margin: "10px" }}>
             Seeking since {moment(this.props.createdAt).format("MMMM DD YYYY")}
           </Card.Meta>
           <Card className="theme">
@@ -25,9 +25,9 @@ class UserProfile extends Component {
               </Card.Description>
             </Card.Content>
           </Card>
-              <Card.Meta style={{ marginTop: "10px" }}>
+          <Card.Meta style={{ margin: "10px" }}>
             I have won <strong>{this.props.score}</strong> Hunts.
-              </Card.Meta>
+          </Card.Meta>
         </Card.Content>
       </Card>
     );

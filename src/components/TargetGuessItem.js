@@ -97,10 +97,6 @@ export class TargetGuessItem extends Component {
                   id={this.props.id}
                   alt=""
                 />
-              </Card.Content>
-            </Card>
-            <Card style={{ margin: "auto" }}>
-              <Card.Content>
                 <Feed.Extra className="break-word">
                   {this.props.target.text}
                 </Feed.Extra>
@@ -111,7 +107,7 @@ export class TargetGuessItem extends Component {
               </Card.Content>
               {this.state.lat && (
                 <Card.Content>
-                  Distance from Target:{" "}
+                  Missed by{" "}
                   {Math.trunc(
                     this.distanceInKmBetweenEarthCoordinates(
                       this.props.lat,

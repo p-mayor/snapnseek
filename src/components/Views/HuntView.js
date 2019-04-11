@@ -68,7 +68,7 @@ export class HuntView extends Component {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Card style={{ margin: "auto", width: "70%" }}>
+        <Card style={{ margin: "auto", width: "70%", maxWidth: "1000px" }}>
           <Card.Content>
             {this.props.currentTarget.pictureURL && (
               <img
@@ -116,7 +116,7 @@ export class HuntView extends Component {
           </Card.Content>
         </Card>
         <br />
-        <Segment style={{ width: "70%", margin: "auto" }}>
+        <Segment style={{ width: "70%", margin: "auto", maxWidth: "1000px" }}>
           <TargetGuessFeed
             lat={this.state.lat}
             long={this.state.long}

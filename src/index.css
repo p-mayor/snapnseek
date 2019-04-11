@@ -16,9 +16,9 @@ body {
   z-index: 1;
 }
 
-.feedstyle {
+/* .feedstyle {
   background-color: #ffc7c4;
-}
+} */
 
 /* .feedstyle:nth-child(even) {
   background-color: #ffc7c4;
@@ -70,5 +70,3 @@ body {
 .ui.modal {
   background-color: #f43838;
 }
-
-

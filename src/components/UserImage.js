@@ -32,7 +32,13 @@ class UserImage extends Component {
     };
   }
   render() {
-    return <Image src={this.state.src} size={this.props.size} />;
+    return (
+      <Image
+        src={this.state.src}
+        size={this.props.size}
+        style={{ margin: "auto" }}
+      />
+    );
   }
 }
 
