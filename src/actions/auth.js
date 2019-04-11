@@ -89,11 +89,11 @@ export const logout = () => (dispatch, getState) => {
     });
 };
 
-export const loginThenGoToUserProfile = loginData => dispatch => {
-  return dispatch(login(loginData)).then(() => dispatch(push("/profile")));
+export const loginThenGoToHome = loginData => dispatch => {
+  return dispatch(login(loginData)).then(() => dispatch(push("/home")));
 };
 
-export const registerThenGoToUserProfile = registerData => dispatch => {
+export const registerThenGoToLogin = registerData => dispatch => {
   return dispatch(register(registerData)).then(() => dispatch(push("/")));
 };
 

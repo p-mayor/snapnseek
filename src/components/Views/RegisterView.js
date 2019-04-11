@@ -9,7 +9,7 @@ import {
 } from "semantic-ui-react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { registerThenGoToUserProfile as register } from "../../actions";
+import { registerThenGoToLogin as register } from "../../actions";
 import StickyHeader from "../StickyHeader";
 import logo from "../../img/whitebullseye.png";
 
@@ -85,10 +85,7 @@ class RegisterForm extends Component {
                 {err && <p style={{ color: "red" }}>{err}</p>}
               </FormField>
               <div style={{ textAlign: "center" }}>
-                <Button class = "theme"
-                  type="submit"
-                  disabled={isLoading}
-                >
+                <Button class="theme" type="submit" disabled={isLoading}>
                   Submit
                 </Button>
               </div>

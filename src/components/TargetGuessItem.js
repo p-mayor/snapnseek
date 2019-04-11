@@ -78,23 +78,24 @@ export class TargetGuessItem extends Component {
     // this.getExif();
   }
 
+  matchIdtoUsername = userId => {
+    let user = this.props.userList.find(user => user.id === userId);
+    if (user) return user.displayName;
+    return "Deleted";
+  };
+
   render() {
     return (
       <Feed className="feedstyle">
-        <Feed.Event style={{ paddingBottom: "20px" }}>
+        <Feed.Event style={{ padding: "20px" }}>
           <Feed.Content>
-            <Feed.Summary>
-              <Feed.Date style={{ paddingBottom: "5px" }}>
-                {moment(this.props.target.createdAt).fromNow()}
-              </Feed.Date>
-            </Feed.Summary>
             <Card style={{ margin: "auto" }}>
               <Card.Content>
                 <img
                   src={this.props.target.pictureURL}
                   style={{ width: "100%" }}
                   id={this.props.id}
-                  alt=''
+                  alt=""
                 />
               </Card.Content>
             </Card>
@@ -103,6 +104,10 @@ export class TargetGuessItem extends Component {
                 <Feed.Extra className="break-word">
                   {this.props.target.text}
                 </Feed.Extra>
+                <Feed.Meta className="break-word">
+                  guessed by {this.matchIdtoUsername(this.props.target.userId)}{" "}
+                  {moment(this.props.target.createdAt).fromNow()}
+                </Feed.Meta>
               </Card.Content>
               {this.state.lat && (
                 <Card.Content>
@@ -126,12 +131,15 @@ export class TargetGuessItem extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  userList: state.users.userList,
+  isLoading: state.auth.loginLoading,
+  err: state.auth.loginError,
+  token: state.auth.login.token,
+  userId: state.auth.login.id
+});
+
 export default connect(
-  ({ auth }) => ({
-    isLoading: auth.loginLoading,
-    err: auth.loginError,
-    token: auth.login.token,
-    userId: auth.login.id
-  })
-  // { toggleAddLike, toggleDeleteLike }
+  mapStateToProps,
+  null
 )(TargetGuessItem);
