@@ -43,7 +43,7 @@ export class HomeTargetItem extends Component {
             <Card.Content>
               <Image
                 src={this.props.target.pictureURL}
-                style={{ maxHeight: "600px" }}
+                style={{ maxHeight: "600px", width: "100%" }}
               />
             </Card.Content>
             <Card.Content>

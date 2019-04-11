@@ -69,13 +69,18 @@ export class HuntView extends Component {
       <React.Fragment>
         <StickyHeader />
         <Card style={{ margin: "auto", width: "70%", maxWidth: "1000px" }}>
-          <Card.Content style={{ margin: "auto" }}>
+          <Card.Content style={{ margin: "auto", textAlign: "center" }}>
             {this.props.currentTarget.pictureURL && (
               <img
                 id="image"
                 src={this.props.currentTarget.pictureURL}
                 alt=""
-                style={{ maxHeight: "800px" }}
+                style={{
+                  maxHeight: "800px",
+                  width: "80%",
+                  margin: "auto",
+                  textAlign: "center"
+                }}
               />
             )}
           </Card.Content>
