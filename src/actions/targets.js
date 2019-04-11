@@ -97,4 +97,8 @@ export const createTarget = targetData => (dispatch, getState) => {
     });
 };
 
+export const createTargetThenGetTargets = targetData => dispatch => {
+  return dispatch(createTarget(targetData)).then(() => dispatch(getTargets()));
+};
+
 export default getTargets;

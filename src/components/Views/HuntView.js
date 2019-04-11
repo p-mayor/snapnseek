@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Card, Grid, Segment } from "semantic-ui-react";
+import { Image, Card, Grid, Segment, Header, Divider } from "semantic-ui-react";
 import StickyHeader from "../StickyHeader";
 import A from "../../img/mapquads/A.png";
 import B from "../../img/mapquads/B.png";
@@ -58,39 +58,65 @@ export class HuntView extends Component {
     }
   }
 
+  matchIdtoUsername = userId => {
+    let user = this.props.userList.find(user => user.id === userId);
+    if (user) return user.displayName;
+    return "Deleted";
+  };
+
   render() {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Card style={{ margin: "auto", width: "70%" }}>
+        <Card style={{ margin: "auto", width: "70%", maxWidth: "1000px" }}>
+          <Card.Content style={{ margin: "auto" }}>
+            {this.props.currentTarget.pictureURL && (
+              <img
+                id="image"
+                src={this.props.currentTarget.pictureURL}
+                alt=""
+                style={{ maxHeight: "800px" }}
+              />
+            )}
+          </Card.Content>
           <Card.Content>
-            <Grid columns={2}>
-              <Grid.Row>
-                <Grid.Column>
-                  {this.props.currentTarget.pictureURL && (
-                    <img id="image" src={this.props.currentTarget.pictureURL} alt=''/>
-                  )}
-                </Grid.Column>
-                <Grid.Column>
-                  <Image
-                    src={
-                      this.state.quads[this.props.currentTarget.neighborhood]
-                    }
-                    style={{ height: "97.5%", width: "100%" }}
-                  />
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-            <Card.Header>{this.props.currentTarget.title}</Card.Header>
-            <Card.Meta>posted by: {this.props.currentTarget.userId}</Card.Meta>
-            <Card.Content>{this.props.currentTarget.text}</Card.Content>
+            <Card.Header textAlign="center">
+              {this.props.currentTarget.title}
+            </Card.Header>
+            <Card.Meta textAlign="center">
+              posted by:{" "}
+              {this.matchIdtoUsername(this.props.currentTarget.userId)}
+            </Card.Meta>
+            <Divider />
+            <Card.Content>
+              <Grid columns={2}>
+                <Grid.Row>
+                  <Grid.Column textAlign="center">
+                    {this.props.currentTarget.text}
+                  </Grid.Column>
+                  <Grid.Column>
+                    <Header textAlign="center">Neighborhood</Header>
+                    <Image
+                      src={
+                        this.state.quads[this.props.currentTarget.neighborhood]
+                      }
+                      style={{
+                        maxHeight: "800px",
+                        display: "block",
+                        margin: "auto"
+                      }}
+                    />
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Card.Content>
           </Card.Content>
           <Card.Content extra style={{ margin: "auto" }}>
             <GuessForm targetId={Number(this.props.match.params.id)} />
           </Card.Content>
         </Card>
         <br />
-        <Segment style={{ width: "70%", margin: "auto" }}>
+        <Segment style={{ width: "70%", margin: "auto", maxWidth: "1000px" }}>
           <TargetGuessFeed
             lat={this.state.lat}
             long={this.state.long}
@@ -102,9 +128,14 @@ export class HuntView extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  targets: state.targets,
+  userList: state.users.userList,
+  isTargetLoading: state.targets.getTargetsLoading,
+  currentTarget: state.targets.currentTarget
+});
+
 export default connect(
-  ({ targets }) => ({
-    currentTarget: targets.currentTarget
-  }),
+  mapStateToProps,
   { getTargetById }
 )(HuntView);

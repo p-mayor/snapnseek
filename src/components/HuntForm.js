@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Card, Modal, Form, Grid, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { createTarget } from "../actions";
+import { createTargetThenGetTargets as createTarget } from "../actions";
 import A from "../img/mapquads/A.png";
 import B from "../img/mapquads/B.png";
 import C from "../img/mapquads/C.png";
@@ -117,12 +117,13 @@ class HuntForm extends Component {
                   </Grid.Column>
                   <Grid.Column>
                     <Form.Field>
+                      <h1>Pick the neighborhood</h1>
                       <div id="radio-button-wrapper">
                         <label>
                           <input type="radio" name="neighborhood" value="A" />
                           <img
                             src={A}
-                            style={{ height: "180px", width: "150px" }}
+                            style={{ height: "180px", width: "20%" }}
                             alt=" "
                           />
                         </label>
@@ -130,7 +131,7 @@ class HuntForm extends Component {
                           <input type="radio" name="neighborhood" value="B" />
                           <img
                             src={B}
-                            style={{ height: "180px", width: "150px" }}
+                            style={{ height: "180px", width: "20%" }}
                             alt=" "
                           />
                         </label>
@@ -138,7 +139,7 @@ class HuntForm extends Component {
                           <input type="radio" name="neighborhood" value="C" />
                           <img
                             src={C}
-                            style={{ height: "180px", width: "150px" }}
+                            style={{ height: "180px", width: "20%" }}
                             alt=" "
                           />
                         </label>
@@ -146,7 +147,7 @@ class HuntForm extends Component {
                           <input type="radio" name="neighborhood" value="D" />
                           <img
                             src={D}
-                            style={{ height: "180px", width: "150px" }}
+                            style={{ height: "180px", width: "20%" }}
                             alt=" "
                           />
                         </label>

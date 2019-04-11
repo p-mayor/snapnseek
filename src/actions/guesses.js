@@ -13,7 +13,6 @@ export const CREATE_GUESS = "CREATE_GUESS";
 export const CREATE_GUESS_SUCCESS = "CREATE_GUESS_SUCCESS";
 export const CREATE_GUESS_FAIL = "CREATE_GUESS_FAIL";
 
-
 const url = domain + "/guesses";
 export const getGuesses = () => dispatch => {
   dispatch({
@@ -26,7 +25,6 @@ export const getGuesses = () => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
-
       if (result.guesses.length === 0) {
         return dispatch({
           type: END_OF_GUESSES
@@ -56,7 +54,6 @@ export const getGuessById = guessId => (dispatch, getState) => {
   })
     .then(handleJsonResponse)
     .then(result => {
-
       let index = getState().guesses.guesses.findIndex(
         guess => guess.id === guessId
       );
@@ -98,6 +95,10 @@ export const createGuess = guessData => (dispatch, getState) => {
         dispatch({ type: CREATE_GUESS_FAIL, payload: err.message })
       );
     });
+};
+
+export const createGuessThenGetGuesses = guessData => dispatch => {
+  return dispatch(createGuess(guessData)).then(() => dispatch(getGuesses()));
 };
 
 export default getGuesses;
