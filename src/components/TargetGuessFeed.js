@@ -9,12 +9,6 @@ class TargetGuessFeed extends Component {
     this.props.getGuesses();
   }
 
-  // componentDidUpdate(prevState) {
-  //   if (prevState !== this.state) {
-  //     this.props.getGuesses();
-  //   }
-  // }
-
   render() {
     return (
       <Card style={{ width: "100%", margin: "auto" }}>
@@ -23,7 +17,7 @@ class TargetGuessFeed extends Component {
             All Guesses on This Target
           </Card.Header>
           {this.props.guesses
-            .filter(guess => guess.targetId === this.props.targetId)
+            .filter(guess => guess.targetId === Number(this.props.targetId))
             .map(guess => (
               <TargetGuessItem
                 key={guess.id}
