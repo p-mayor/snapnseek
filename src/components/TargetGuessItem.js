@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { Feed, Card } from "semantic-ui-react";
 import { connect } from "react-redux";
-// import { toggleAddLike, toggleDeleteLike } from "../actions";
 import moment from "moment";
 import EXIF from "exif-js";
 
 export class TargetGuessItem extends Component {
   state = { lat: null };
   getExif() {
-    // let imageEl = document.getElementById("image");
     let newImageEl = document.createElement("img");
     newImageEl.src = this.props.target.pictureURL;
 
@@ -58,8 +56,6 @@ export class TargetGuessItem extends Component {
   }
 
   componentDidMount() {
-    // let imageEl = document.getElementById("image");
-    // imageEl.onload = this.getExif.bind(this);
     let imageEl = document.getElementById(this.props.id);
     if (imageEl) {
       imageEl.onload = this.getExif.bind(this);
@@ -67,15 +63,9 @@ export class TargetGuessItem extends Component {
   }
 
   componentDidUpdate() {
-    // if (this.props.target.pictureURL !== prevProps.target.pictureURL) {
     let imageEl = document.getElementById(this.props.id);
     imageEl.onload = this.getExif.bind(this);
     console.log(imageEl);
-    // }
-    // this.props.getTargetById(this.props.match.params.id);
-    // console.log(this.props.currentTarget);
-    // console.log("hi");
-    // this.getExif();
   }
 
   matchIdtoUsername = userId => {
