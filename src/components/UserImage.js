@@ -36,7 +36,7 @@ class UserImage extends Component {
       <Image
         src={this.state.src}
         size={this.props.size}
-        style={{ margin: "auto" }}
+        style={{ margin: "auto", paddingTop: "10px", backgroundColor: "white" }}
       />
     );
   }

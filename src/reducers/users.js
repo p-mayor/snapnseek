@@ -70,7 +70,8 @@ export default (state = initialState, action) => {
     case UPDATE_USER_SUCCESS:
       return {
         ...state,
-        loggedInUser: { ...state.loggedInUser, ...action.data }
+        loggedInUser: { ...state.loggedInUser, ...action.data },
+        imageTimestamp: ""
       };
     case UPDATE_USER_FAILURE:
       return state;

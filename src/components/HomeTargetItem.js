@@ -30,7 +30,11 @@ export class HomeTargetItem extends Component {
         <Feed.Content style={{ paddingBottom: "10px" }}>
           <Feed.Summary style={{ paddingBottom: "5px" }} />
           <Card style={{ margin: "auto", width: "90%" }}>
-            <UserImage userId={this.props.target.userId} size="mini" />
+            <UserImage
+              userId={this.props.target.userId}
+              size="mini"
+              style={{ paddingTop: "20px" }}
+            />
             <Feed.User style={{ color: "black" }} className="break-word">
               {this.props.displayName} posted{" "}
               {moment(this.props.target.createdAt).fromNow()}
