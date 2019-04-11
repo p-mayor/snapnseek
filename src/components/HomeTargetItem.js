@@ -55,7 +55,8 @@ export class HomeTargetItem extends Component {
                         </Card.Content>
                         <Card.Content extra style={{ margin: "auto" }}>
                             <Link to={`targets/${this.props.target.id}`}>
-                                <Button animated compact positive>
+                                {/* <Button animated compact positive> */}
+                                <Button className="theme"animated compact>
                                     <Button.Content visible>
                                         Check it Out
                                     </Button.Content>

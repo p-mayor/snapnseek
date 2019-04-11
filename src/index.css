@@ -16,9 +16,13 @@ body {
   z-index: 1;
 }
 
-.feedstyle:nth-child(even) {
+.feedstyle {
   background-color: #ffc7c4;
 }
+
+/* .feedstyle:nth-child(even) {
+  background-color: #ffc7c4;
+} */
 
 .feedstyle:hover {
   background-color: #ffb1b4;

@@ -25,7 +25,7 @@ class UpdateProfileForm extends Component {
             <Button
               onClick={this.handleModal}
               compact
-              className="theme2"
+              className="theme"
               style={{
                 borderBottom: "1px solid grey",
                 width: "90%"

@@ -38,7 +38,7 @@ class GuessForm extends Component {
             onClick={this.handleModal}
             type="submit"
             style={{ padding: "9px" }}
-            positive
+            className = "theme"
             animated
           >
             <Button.Content visible> Submit Your Guess</Button.Content>
@@ -78,7 +78,7 @@ class GuessForm extends Component {
                       <Button
 
                         onSubmit={this.handleSubmit}
-                        content="Submit Your Guess"
+                        // content="Submit Your Guess"
                         style={{ backgroundColor: "#ffa366" }}
                         animated
                       >
