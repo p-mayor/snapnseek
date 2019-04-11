@@ -9,7 +9,7 @@ export class ProfileGuessItem extends Component {
   render() {
     return (
       <Feed className="feedstyle">
-        <Link to={`/targets/${this.props.target.targetId}`}>
+        <Link to={`/targets/${this.props.target.id}`}>
           <Feed.Event style={{ paddingBottom: "20px" }}>
             <Feed.Content>
               <Feed.Summary>
