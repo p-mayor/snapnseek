@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "semantic-ui-react";
 import { connect } from "react-redux";
-import UserImage from "./UserImage";
+import SimpleUserImage from "./SimpleUserImage";
 
 export class UserItem extends Component {
   render() {
@@ -9,7 +9,7 @@ export class UserItem extends Component {
       <React.Fragment>
         <Table.Row style={{ margin: "auto" }}>
           <Table.Cell>
-            <UserImage
+            <SimpleUserImage
               size="tiny"
               textAlign="center"
               userId={this.props.id}

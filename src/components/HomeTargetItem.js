@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Feed, Card, Image, Button, Icon, Divider } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import UserImage from "./UserImage";
+import SimpleUserImage from "./SimpleUserImage";
 import moment from "moment";
 
 export class HomeTargetItem extends Component {
@@ -30,7 +30,7 @@ export class HomeTargetItem extends Component {
         <Feed.Content style={{ paddingBottom: "10px" }}>
           <Feed.Summary style={{ paddingBottom: "5px" }} />
           <Card style={{ margin: "auto", width: "90%" }}>
-            <UserImage
+            <SimpleUserImage
               userId={this.props.target.userId}
               size="mini"
               style={{ paddingTop: "20px" }}

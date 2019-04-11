@@ -22,13 +22,11 @@ class UserImage extends Component {
     this._isMounted = false;
   }
   static getDerivedStateFromProps(props) {
-    if (props.imageTimestamp === undefined) {
+    if (props.imageTimestamp === "" || props.imageTimestamp === undefined) {
       return null;
     }
     return {
-      src: `${domain}/users/${props.userId}/picture?timestamp=${
-        props.imageTimestamp
-      }`
+      src: `${domain}/users/${props.userId}/picture${props.imageTimestamp}`
     };
   }
   render() {

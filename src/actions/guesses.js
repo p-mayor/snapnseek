@@ -1,5 +1,7 @@
 //getGuesses method
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
+import EXIF from "exif-js";
+import { updateUser } from "./users";
 
 // action types
 export const GET_GUESS = "GET_GUESS";
@@ -85,10 +87,35 @@ export const createGuess = guessData => (dispatch, getState) => {
   })
     .then(handleJsonResponse)
     .then(result => {
-      return dispatch({
+      dispatch({
         type: CREATE_GUESS_SUCCESS,
         payload: result
       });
+      let newImageEl = document.createElement("img");
+      console.log(result);
+      newImageEl.onload = () => {
+        console.log("loaded");
+        EXIF.getData(newImageEl, function() {
+          let latitude = EXIF.getTag(this, "GPSLatitude");
+          let longitude = EXIF.getTag(this, "GPSLongitude");
+          if (latitude && longitude) {
+            let latDeg = latitude[0];
+            let latMin = latitude[1];
+            let latSec = latitude[2];
+            let latitudeFormat = latDeg + (latMin + latSec / 60) / 60;
+            let longDeg = longitude[0];
+            let longMin = longitude[1];
+            let longSec = longitude[2];
+            let longitudeFormat = longDeg + (longMin + longSec / 60) / 60;
+            longitudeFormat = longitudeFormat * -1;
+
+            let oldScore = getState().users.loggedInUser.score;
+            let newScore = oldScore + 1;
+            dispatch(updateUser({ score: newScore }));
+          }
+        });
+      };
+      newImageEl.src = result.newGuess.pictureURL;
     })
     .catch(err => {
       return Promise.reject(

@@ -101,7 +101,7 @@ export const updateUser = userData => (dispatch, getState) => {
     })
     .then(data => {
       dispatch({ type: UPDATE_USER_SUCCESS, data: data.user });
-      dispatch(push("/profile"));
+      // dispatch(push("/profile"));
     })
     .catch(err => {
       dispatch({ type: UPDATE_USER_FAILURE, err });
@@ -143,7 +143,7 @@ export const uploadImage = imageData => (dispatch, getState) => {
         dispatch({
           type: UPLOAD_USER_IMAGE_SUCCESS,
           uploadImageResult: "Image upload successful",
-          imageTimestamp: Date.now()
+          imageTimestamp: "?timestamp=" + Date.now()
         });
       }
     })
