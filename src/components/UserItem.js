@@ -20,7 +20,7 @@ export class UserItem extends Component {
             {this.props.displayName}
           </Table.Cell>
           <Table.Cell style={{ textAlign: "center" }}>
-            {this.props.score} {" Hunts"}
+            {this.props.score} {" Guesses"}
           </Table.Cell>
         </Table.Row>
       </React.Fragment>

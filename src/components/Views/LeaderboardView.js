@@ -26,11 +26,7 @@ class LeaderboardView extends Component {
               The World's Greatest Hunters
             </Card.Header>
             <br />
-            <Table
-              basic="very"
-              celled
-              style={{ width: "70%", margin: "auto" }}
-            >
+            <Table basic="very" celled style={{ width: "70%", margin: "auto" }}>
               <Table.Header>
                 <Table.Row style={{ textAlign: "center" }}>
                   <Table.HeaderCell style={{ textAlign: "center" }}>
@@ -40,7 +36,7 @@ class LeaderboardView extends Component {
                     Username
                   </Table.HeaderCell>
                   <Table.HeaderCell style={{ textAlign: "center" }}>
-                    Hunts Conquered
+                    Guesses
                   </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
