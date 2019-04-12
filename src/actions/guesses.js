@@ -91,11 +91,34 @@ export const createGuess = guessData => (dispatch, getState) => {
         type: CREATE_GUESS_SUCCESS,
         payload: result
       });
-      let newImageEl = document.createElement("img");
-      console.log(result);
-      newImageEl.onload = () => {
+      function degreesToRadians(degrees) {
+        return (degrees * Math.PI) / 180;
+      }
+
+      function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
+        var earthRadiusKm = 6371;
+
+        var dLat = degreesToRadians(lat2 - lat1);
+        var dLon = degreesToRadians(lon2 - lon1);
+
+        lat1 = degreesToRadians(lat1);
+        lat2 = degreesToRadians(lat2);
+
+        var a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.sin(dLon / 2) *
+            Math.sin(dLon / 2) *
+            Math.cos(lat1) *
+            Math.cos(lat2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return earthRadiusKm * c;
+      }
+      //TODO: get score update working based on distance
+      let guessImageEl = document.createElement("img");
+      guessImageEl.src = result.newGuess.pictureURL;
+      guessImageEl.onload = () => {
         console.log("loaded");
-        EXIF.getData(newImageEl, function() {
+        EXIF.getData(guessImageEl, function() {
           let latitude = EXIF.getTag(this, "GPSLatitude");
           let longitude = EXIF.getTag(this, "GPSLongitude");
           if (latitude && longitude) {
@@ -115,7 +138,26 @@ export const createGuess = guessData => (dispatch, getState) => {
           }
         });
       };
-      newImageEl.src = result.newGuess.pictureURL;
+      let currentTargetImageEl = document.createElement("img");
+      currentTargetImageEl.src = getState().targets.currentTarget.pictureURL;
+      currentTargetImageEl.onload = () => {
+        console.log("loaded");
+        EXIF.getData(currentTargetImageEl, function() {
+          let latitude = EXIF.getTag(this, "GPSLatitude");
+          let longitude = EXIF.getTag(this, "GPSLongitude");
+          if (latitude && longitude) {
+            let latDeg = latitude[0];
+            let latMin = latitude[1];
+            let latSec = latitude[2];
+            let latitudeFormat = latDeg + (latMin + latSec / 60) / 60;
+            let longDeg = longitude[0];
+            let longMin = longitude[1];
+            let longSec = longitude[2];
+            let longitudeFormat = longDeg + (longMin + longSec / 60) / 60;
+            longitudeFormat = longitudeFormat * -1;
+          }
+        });
+      };
     })
     .catch(err => {
       return Promise.reject(
