@@ -68,60 +68,73 @@ export class HuntView extends Component {
     return (
       <React.Fragment>
         <StickyHeader />
-        <Card style={{ margin: "auto", width: "70%", maxWidth: "1000px" }}>
-          <Card.Content style={{ margin: "auto", textAlign: "center" }}>
-            {this.props.currentTarget.pictureURL && (
-              <img
-                id="image"
-                src={this.props.currentTarget.pictureURL}
-                alt=""
+        <Grid>
+          <Grid.Row>
+            <Grid.Column style={{ marginTop: "140px" }}>
+              <Card
                 style={{
-                  maxHeight: "800px",
-                  width: "80%",
                   margin: "auto",
-                  textAlign: "center"
+                  width: "90%",
+                  maxWidth: "1000px"
                 }}
-              />
-            )}
-          </Card.Content>
-          <Card.Content>
-            <Card.Header textAlign="center">
-              {this.props.currentTarget.title}
-            </Card.Header>
-            <Card.Meta textAlign="center">
-              posted by:{" "}
-              {this.matchIdtoUsername(this.props.currentTarget.userId)}
-            </Card.Meta>
-            <Divider />
-            <Card.Content>
-              <Grid columns={2}>
-                <Grid.Row>
-                  <Grid.Column textAlign="center">
-                    {this.props.currentTarget.text}
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Header textAlign="center">Neighborhood</Header>
-                    <Image
-                      src={
-                        this.state.quads[this.props.currentTarget.neighborhood]
-                      }
+              >
+                <Card.Content style={{ margin: "auto", textAlign: "center" }}>
+                  <Card.Header textAlign="center">
+                    {this.props.currentTarget.title}
+                  </Card.Header>
+                  <Card.Meta textAlign="center">
+                    posted by:{" "}
+                    {this.matchIdtoUsername(this.props.currentTarget.userId)}
+                  </Card.Meta>
+                  {this.props.currentTarget.pictureURL && (
+                    <img
+                      id="image"
+                      src={this.props.currentTarget.pictureURL}
+                      alt=""
                       style={{
                         maxHeight: "800px",
-                        display: "block",
-                        margin: "auto"
+                        width: "80%",
+                        margin: "auto",
+                        textAlign: "center"
                       }}
                     />
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Card.Content>
-          </Card.Content>
-          <Card.Content extra style={{ margin: "auto" }}>
-            <GuessForm targetId={Number(this.props.match.params.id)} />
-          </Card.Content>
-        </Card>
+                  )}
+                </Card.Content>
+                <Card.Content>
+                  <Card.Content>
+                    <Grid columns={2}>
+                      <Grid.Row>
+                        <Grid.Column textAlign="center">
+                          {this.props.currentTarget.text}
+                        </Grid.Column>
+                        <Grid.Column>
+                          <Header textAlign="center">Neighborhood</Header>
+                          <Image
+                            src={
+                              this.state.quads[
+                                this.props.currentTarget.neighborhood
+                              ]
+                            }
+                            style={{
+                              maxHeight: "800px",
+                              display: "block",
+                              margin: "auto"
+                            }}
+                          />
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                  </Card.Content>
+                </Card.Content>
+                <Card.Content extra style={{ margin: "auto" }}>
+                  <GuessForm targetId={Number(this.props.match.params.id)} />
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <br />
-        <Segment style={{ width: "70%", margin: "auto", maxWidth: "1000px" }}>
+        <Segment style={{ width: "90%", margin: "auto", maxWidth: "1000px" }}>
           <TargetGuessFeed
             lat={this.state.lat}
             long={this.state.long}

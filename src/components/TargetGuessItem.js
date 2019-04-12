@@ -78,7 +78,7 @@ export class TargetGuessItem extends Component {
     return (
       <Feed className="feedstyle">
         <Feed.Event style={{ padding: "20px" }}>
-          <Feed.Content>
+          <Feed.Content style={{ width: "100%" }}>
             <Card style={{ margin: "auto" }}>
               <Card.Content>
                 <img

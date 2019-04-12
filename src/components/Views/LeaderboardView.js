@@ -35,13 +35,9 @@ class LeaderboardView extends Component {
                   >
                     <Table.Header>
                       <Table.Row style={{ textAlign: "center" }}>
-                        <Table.HeaderCell style={{ textAlign: "center" }} />
-                        <Table.HeaderCell style={{ textAlign: "center" }}>
-                          Username
-                        </Table.HeaderCell>
-                        <Table.HeaderCell style={{ textAlign: "center" }}>
-                          Guesses
-                        </Table.HeaderCell>
+                        <Table.HeaderCell />
+                        <Table.HeaderCell>Username</Table.HeaderCell>
+                        <Table.HeaderCell>Score</Table.HeaderCell>
                       </Table.Row>
                     </Table.Header>
                     <Table.Body>

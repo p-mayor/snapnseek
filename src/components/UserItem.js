@@ -7,7 +7,7 @@ export class UserItem extends Component {
   render() {
     return (
       <React.Fragment>
-        <Table.Row style={{ margin: "auto" }}>
+        <Table.Row style={{ margin: "auto", textAlign: "center" }}>
           <Table.Cell>
             <SimpleUserImage
               size="tiny"
