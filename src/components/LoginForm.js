@@ -36,9 +36,6 @@ class LoginForm extends Component {
             src={logo}
             alt=""
           />
-          <Header style={{ textAlign: "center", fontSize: "50px" }}>
-            Snap'nSeek
-          </Header>
           <Card.Content>
             <Form>
               <FormField>
@@ -70,7 +67,7 @@ class LoginForm extends Component {
                     className="theme"
                     type="submit"
                     disabled={isLoading}
-                    style={{marginRight: "15px"}}
+                    style={{ marginRight: "15px" }}
                   >
                     <Button.Content visible>Login</Button.Content>
                     <Button.Content hidden>

@@ -91,13 +91,11 @@ class StickyHeader extends Component {
             </Menu>
           ) : (
             <Menu secondary id="menubar">
-              <React.Fragment>
-                <Menu.Item>
-                  <Link to="/">
-                    <Button className="theme">Login</Button>
-                  </Link>
-                </Menu.Item>
-              </React.Fragment>
+              <Menu.Item>
+                <Link to="/">
+                  <Button className="theme">Login</Button>
+                </Link>
+              </Menu.Item>
             </Menu>
           )}
         </Responsive>

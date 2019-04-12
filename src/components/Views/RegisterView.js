@@ -27,13 +27,8 @@ class RegisterForm extends Component {
     const { isLoading, err } = this.props;
     return (
       <React.Fragment>
-        <Header
-          textAlign="center"
-          style={{
-            fontSize: "50px"
-          }}
-        >
-          Snap'nSeek
+        <Header as="h1" textAlign="center">
+          Snap N Seek
         </Header>
         <StickyHeader />
         <Card style={{ margin: "auto" }}>
