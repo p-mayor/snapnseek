@@ -42,7 +42,7 @@ class GuessForm extends Component {
             className="theme"
             animated
           >
-            <Button.Content visible> Submit Your Guess</Button.Content>
+            <Button.Content visible>Submit Your Guess</Button.Content>
             <Button.Content hidden>
               <Icon name="picture" />
             </Button.Content>
@@ -56,7 +56,7 @@ class GuessForm extends Component {
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
                 <Form.TextArea
-                  placeholder="Insert Comments About Your Guess"
+                  placeholder="Insert Description"
                   name="text"
                   label="Guess Description"
                   onChange={this.handleChange}
@@ -75,7 +75,6 @@ class GuessForm extends Component {
                 />
                 <Button
                   onSubmit={this.handleSubmit}
-                  // content="Submit Your Guess"
                   style={{ backgroundColor: "#ffa366" }}
                   animated
                 >
@@ -84,7 +83,6 @@ class GuessForm extends Component {
                     <Icon name="motorcycle" />
                   </Button.Content>
                 </Button>
-                {/* redirect to the hunt page for the hunt just created */}
               </Form.Field>
             </Form>
           </Card.Content>

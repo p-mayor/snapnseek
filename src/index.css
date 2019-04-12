@@ -6,22 +6,8 @@ body {
   background-color: #fbf2d0;
 }
 
-.menu {
+/* .menu {
   justify-content: center;
-}
-
-#menubar {
-  height: 5%;
-  width: 100%;
-  z-index: 1;
-}
-
-/* .feedstyle {
-  background-color: #ffc7c4;
-} */
-
-/* .feedstyle:nth-child(even) {
-  background-color: #ffc7c4;
 } */
 
 .feedstyle:hover {

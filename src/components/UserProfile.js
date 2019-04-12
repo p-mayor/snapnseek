@@ -19,14 +19,13 @@ class UserProfile extends Component {
           </Card.Meta>
           <Card className="theme">
             <Card.Content>
-              <Card.Header as="h4">Bio:</Card.Header>
               <Card.Description className="break-word">
                 {this.props.about || "This Hunter has not yet created a bio"}
               </Card.Description>
             </Card.Content>
           </Card>
           <Card.Meta style={{ margin: "10px" }}>
-            I have won <strong>{this.props.score}</strong> Hunts.
+            Score:<strong>{this.props.score}</strong>
           </Card.Meta>
         </Card.Content>
       </Card>

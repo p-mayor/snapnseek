@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Menu, Button, Image, Icon } from "semantic-ui-react";
+import { Responsive, Menu, Button, Image, Icon, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import UserImage from "./UserImage";
 import { logoutThenGoToLogin as logout } from "../actions";
 import logo from "../img/bullseye.png";
 import HuntForm from "./HuntForm";
@@ -15,9 +14,16 @@ class StickyHeader extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.login !== null ? (
-          <Menu id="menubar">
-            <React.Fragment>
+        <Responsive minWidth={768} style={{ marginTop: "10px" }}>
+          {this.props.login !== null ? (
+            <Menu
+              id="menubar"
+              style={{
+                position: "fixed",
+                width: "100%",
+                zIndex: "2"
+              }}
+            >
               <Link to="/home">
                 <Menu.Item style={{ height: "100%" }}>
                   <strong>Home</strong>
@@ -38,15 +44,33 @@ class StickyHeader extends Component {
               <Menu.Menu position="right">
                 <Link to="/profile">
                   <Menu.Item style={{ height: "100%" }}>
-                    <span style={{ marginRight: "10px" }}>
-                      {this.props.displayName}
-                    </span>
-                    <UserImage userId={this.props.login.id} size="mini" />
+                    <Button
+                      className="theme"
+                      animated
+                      compact
+                      style={{ padding: "9px", marginLeft: "10px" }}
+                      width="400px"
+                    >
+                      <Button.Content visible>Profile</Button.Content>
+                      <Button.Content hidden>
+                        <Icon name="user circle" />
+                      </Button.Content>
+                    </Button>
                   </Menu.Item>
                 </Link>
                 <Link to="/leaderboard">
                   <Menu.Item style={{ height: "100%" }}>
-                    <span style={{ marginRight: "10px" }}>Leaderboard</span>
+                    <Button
+                      className="theme"
+                      animated
+                      compact
+                      style={{ padding: "9px" }}
+                    >
+                      <Button.Content visible>Leaderboard</Button.Content>
+                      <Button.Content hidden>
+                        <Icon name="trophy" />
+                      </Button.Content>
+                    </Button>
                   </Menu.Item>
                 </Link>
                 <Menu.Item>
@@ -59,24 +83,62 @@ class StickyHeader extends Component {
                   >
                     <Button.Content visible>Logout</Button.Content>
                     <Button.Content hidden>
-                      <Icon name="motorcycle" />
+                      <Icon name="log out" />
                     </Button.Content>
                   </Button>
                 </Menu.Item>
               </Menu.Menu>
-            </React.Fragment>
-          </Menu>
-        ) : (
-          <Menu secondary id="menubar">
-            <React.Fragment>
-              <Menu.Item>
-                <Link to="/">
-                  <Button className="theme">Login</Button>
+            </Menu>
+          ) : (
+            <Menu secondary id="menubar">
+              <React.Fragment>
+                <Menu.Item>
+                  <Link to="/">
+                    <Button className="theme">Login</Button>
+                  </Link>
+                </Menu.Item>
+              </React.Fragment>
+            </Menu>
+          )}
+        </Responsive>
+        <Responsive maxWidth={768}>
+          <Menu
+            icon="labeled"
+            style={{
+              position: "fixed",
+              width: "100%",
+              zIndex: "2"
+            }}
+          >
+            <Grid>
+              <Grid.Row style={{ width: "100%", justifyContent: "center" }}>
+                <Link to="/home">
+                  <Menu.Item name="home">
+                    <Icon name="home" />
+                    Home
+                  </Menu.Item>
                 </Link>
-              </Menu.Item>
-            </React.Fragment>
+                <Link to="/profile">
+                  <Menu.Item name="profile">
+                    <Icon name="user circle" />
+                    Profile
+                  </Menu.Item>
+                </Link>
+                <Link to="/leaderboard">
+                  <Menu.Item name="leaderboard">
+                    <Icon name="trophy" />
+                    Leaderboard
+                  </Menu.Item>
+                </Link>
+                <Menu.Item name="logout" onClick={this.handleLogout}>
+                  <Icon name="log out" />
+                  Logout
+                </Menu.Item>
+              </Grid.Row>
+            </Grid>
+            <HuntForm />
           </Menu>
-        )}
+        </Responsive>
       </React.Fragment>
     );
   }

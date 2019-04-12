@@ -19,7 +19,7 @@ class HomeTargetFeed extends Component {
 
   render() {
     return (
-      <Card style={{ width: "100%" }}>
+      <Card style={{ width: "90%", margin: "auto" }}>
         <Card.Content>
           <Card.Header as="h2" textAlign="center">
             All Targets

@@ -14,8 +14,7 @@ export default class ProfileView extends Component {
       <React.Fragment>
         <StickyHeader />
         <Grid container stackable>
-          <Grid.Row />
-          <Grid.Row columns={2}>
+          <Grid.Row columns={2} style={{ marginTop: "80px" }}>
             <Grid.Column floated="left" width={6}>
               <UserProfile />
               <Card

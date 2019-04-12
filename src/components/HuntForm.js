@@ -19,25 +19,9 @@ class HuntForm extends Component {
     neighborhood: null
   };
 
-  // handleCreateTarget = e => {
-  //   if (this.state.text.length < 255) {
-  //     this.props.createTarget(this.state);
-  //     this.setState({ text: "" });
-  //   } else {
-  //     this.setState({ err: "Kweet too long" });
-  //   }
-  // };
-
-  // change this to go somewhere
   handleSubmit = e => {
     e.preventDefault();
-    console.log(e.target);
     let formData = new FormData(e.target);
-    console.log(...formData.values());
-    // console.log(e.target.picture.value);
-    // console.log(this);
-    // this.setState({ picture: e.target.picture.value });
-    // console.log(this.state);
     this.props.createTarget(formData);
     this.handleModal();
   };
@@ -112,7 +96,6 @@ class HuntForm extends Component {
                           <Icon name="share" />
                         </Button.Content>
                       </Button>
-                      {/* redirect to the hunt page for the hunt just created */}
                     </Form.Field>
                   </Grid.Column>
                   <Grid.Column>

@@ -14,8 +14,8 @@ export class HomeView extends Component {
       <React.Fragment>
         <StickyHeader />
         <Grid textAlign="center">
-          <Grid.Row columns={2}>
-            <Grid.Column>
+          <Grid.Row columns={1}>
+            <Grid.Column style={{ marginTop: "80px" }}>
               <HomeTargetFeed />
             </Grid.Column>
           </Grid.Row>
