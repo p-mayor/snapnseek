@@ -101,7 +101,6 @@ export const updateUser = userData => (dispatch, getState) => {
     })
     .then(data => {
       dispatch({ type: UPDATE_USER_SUCCESS, data: data.user });
-      // dispatch(push("/profile"));
     })
     .catch(err => {
       dispatch({ type: UPDATE_USER_FAILURE, err });
@@ -177,8 +176,3 @@ export const getUsers = () => dispatch => {
       );
     });
 };
-
-// export const deleteThenGoToRegister = token => dispatch => {
-//     dispatch(push("/"))
-//     return dispatch(deleteUser(token))
-// };

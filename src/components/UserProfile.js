@@ -16,6 +16,8 @@ class UserProfile extends Component {
           <UserAvatar />
           <Card.Meta style={{ margin: "10px" }}>
             Seeking since {moment(this.props.createdAt).format("MMMM DD YYYY")}
+            <br />
+            Score: <strong>{this.props.score}</strong>
           </Card.Meta>
           <Card className="theme">
             <Card.Content>
@@ -24,9 +26,6 @@ class UserProfile extends Component {
               </Card.Description>
             </Card.Content>
           </Card>
-          <Card.Meta style={{ margin: "10px" }}>
-            Score:<strong>{this.props.score}</strong>
-          </Card.Meta>
         </Card.Content>
       </Card>
     );

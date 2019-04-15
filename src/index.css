@@ -10,10 +10,6 @@ body {
   justify-content: center;
 }
 
-.feedstyle:hover {
-  background-color: #ffb1b4;
-}
-
 .break-word {
   word-wrap: break-word;
 }
@@ -43,12 +39,4 @@ body {
 
 .ui.theme2 {
   background-color: #fbf2d0;
-}
-
-.ui.theme:hover {
-  background-color: #f43838;
-}
-
-.ui.modal {
-  background-color: #f43838;
 }

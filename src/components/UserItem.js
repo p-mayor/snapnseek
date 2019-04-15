@@ -30,7 +30,6 @@ export class UserItem extends Component {
 
 export default connect(
   ({ auth }) => ({
-    isLoading: auth.loginLoading,
     err: auth.loginError,
     token: auth.login.token
   }),

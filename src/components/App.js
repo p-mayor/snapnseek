@@ -15,12 +15,8 @@ class App extends Component {
     return (
       <React.Fragment>
         {/* <Switch>
-        <Route exact path="/" render={() => <StickyHeader />} />
+          <Route exact path="/home" render={() => <StickyHeader />} />
         </Switch> */}
-        {/* <Route path="/users/:id" component={User} />
-      <Route path={["/users/:id", "/profile/:id"]} component={User} />
-      Routes without a path always match. */}
-
         <Switch>
           <Route exact path="/" render={() => <LandingView />} />
           <Route exact path="/leaderboard" render={() => <LeaderboardView />} />

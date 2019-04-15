@@ -119,8 +119,6 @@ export class TargetGuessItem extends Component {
 
 const mapStateToProps = state => ({
   userList: state.users.userList,
-  isLoading: state.auth.loginLoading,
-  err: state.auth.loginError,
   token: state.auth.login.token,
   userId: state.auth.login.id
 });
